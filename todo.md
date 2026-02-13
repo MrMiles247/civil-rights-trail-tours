@@ -79,4 +79,12 @@
 - [x] Upload cropped image to CDN
 - [x] Update homepage with cropped image
 - [x] Test cropped image display
-- [ ] Create checkpoint with cropped header photo
+- [x] Create checkpoint with cropped header photo
+
+## Remove Remaining Top Text
+- [x] Crop image more aggressively to remove "Empowering BIPOC Communities" text
+- [x] Focus only on the group photo without any text overlays
+- [x] Upload fully cropped image to CDN
+- [x] Update homepage with text-free image
+- [x] Test final cropped image
+- [ ] Create checkpoint with fully cropped header
