@@ -4,11 +4,50 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, MapPin, Clock, Users } from "lucide-react";
+import { Calendar, MapPin, Clock, Users, ArrowRight } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 
 export default function Tours() {
   const { data: tours, isLoading } = trpc.tours.list.useQuery();
+
+  const cities = [
+    {
+      name: "Memphis",
+      slug: "memphis",
+      description: "Where the echoes of blues and the fight for equality resonate through the air",
+      highlights: ["National Civil Rights Museum", "Lorraine Motel", "Beale Street"]
+    },
+    {
+      name: "Birmingham",
+      slug: "birmingham",
+      description: "A city where the movement's indomitable spirit refused to be quenched",
+      highlights: ["16th Street Baptist Church", "Kelly Ingram Park", "Birmingham Civil Rights Institute"]
+    },
+    {
+      name: "Selma",
+      slug: "selma",
+      description: "A symbol of courage and a beacon for change",
+      highlights: ["Edmund Pettus Bridge", "Brown Chapel AME Church", "National Voting Rights Museum"]
+    },
+    {
+      name: "Montgomery",
+      slug: "montgomery",
+      description: "Birthplace and culmination point of the Civil Rights Movement",
+      highlights: ["Rosa Parks Museum", "Dexter Avenue Church", "Legacy Museum"]
+    },
+    {
+      name: "Tuskegee",
+      slug: "tuskegee",
+      description: "Where innovation and resistance speak through time",
+      highlights: ["Tuskegee University", "George Washington Carver Museum", "Tuskegee Airmen Site"]
+    },
+    {
+      name: "Atlanta",
+      slug: "atlanta",
+      description: "A celebration of civil rights achievements and an invitation to carry the torch forward",
+      highlights: ["MLK Birth Home", "Ebenezer Baptist Church", "The King Center"]
+    }
+  ];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -31,9 +70,70 @@ export default function Tours() {
           </div>
         </section>
 
-        {/* Tours Grid */}
+        {/* City Destinations Section */}
         <section className="py-20 bg-background">
           <div className="container">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-foreground mb-4">
+                Explore <span className="text-primary">Each City</span>
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Discover the detailed itineraries and historical significance of each destination on the Civil Rights Trail
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+              {cities.map((city) => (
+                <Card key={city.slug} className="bg-card border-border hover:border-primary transition-all hover:shadow-lg flex flex-col group">
+                  <CardHeader>
+                    <CardTitle className="text-2xl text-foreground group-hover:text-primary transition-colors">
+                      {city.name}
+                    </CardTitle>
+                    <CardDescription className="text-muted-foreground">
+                      {city.description}
+                    </CardDescription>
+                  </CardHeader>
+
+                  <CardContent className="flex-1">
+                    <div className="space-y-2">
+                      <div className="text-sm font-semibold text-foreground">Key Sites</div>
+                      <ul className="space-y-1">
+                        {city.highlights.map((highlight, index) => (
+                          <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
+                            <span className="text-primary mt-1">•</span>
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </CardContent>
+
+                  <CardFooter>
+                    <Link href={`/${city.slug}`} className="w-full">
+                      <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all">
+                        View Detailed Itinerary
+                        <ArrowRight className="ml-2" size={16} />
+                      </Button>
+                    </Link>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Tours Grid */}
+        <section className="py-20 bg-card">
+          <div className="container">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-foreground mb-4">
+                Tour <span className="text-primary">Packages</span>
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Choose the journey that speaks to you
+              </p>
+            </div>
+
             {isLoading ? (
               <div className="text-center py-12">
                 <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-primary border-t-transparent"></div>
@@ -47,7 +147,7 @@ export default function Tours() {
                   const priceInDollars = (tour.price / 100).toFixed(2);
 
                   return (
-                    <Card key={tour.id} className="bg-card border-border hover:border-primary transition-all hover:shadow-lg flex flex-col">
+                    <Card key={tour.id} className="bg-background border-border hover:border-primary transition-all hover:shadow-lg flex flex-col">
                       <CardHeader>
                         <div className="flex items-start justify-between mb-2">
                           <Badge className="bg-primary/20 text-primary hover:bg-primary/30">
@@ -121,7 +221,7 @@ export default function Tours() {
         </section>
 
         {/* What's Included Section */}
-        <section className="py-20 bg-card">
+        <section className="py-20 bg-background">
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
@@ -134,7 +234,7 @@ export default function Tours() {
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="flex gap-4 p-6 bg-background rounded-lg border border-border">
+                <div className="flex gap-4 p-6 bg-card rounded-lg border border-border">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
                     <Users className="text-primary" size={24} />
                   </div>
@@ -146,7 +246,7 @@ export default function Tours() {
                   </div>
                 </div>
 
-                <div className="flex gap-4 p-6 bg-background rounded-lg border border-border">
+                <div className="flex gap-4 p-6 bg-card rounded-lg border border-border">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center">
                     <MapPin className="text-secondary" size={24} />
                   </div>
@@ -158,7 +258,7 @@ export default function Tours() {
                   </div>
                 </div>
 
-                <div className="flex gap-4 p-6 bg-background rounded-lg border border-border">
+                <div className="flex gap-4 p-6 bg-card rounded-lg border border-border">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
                     <Clock className="text-primary" size={24} />
                   </div>
@@ -170,7 +270,7 @@ export default function Tours() {
                   </div>
                 </div>
 
-                <div className="flex gap-4 p-6 bg-background rounded-lg border border-border">
+                <div className="flex gap-4 p-6 bg-card rounded-lg border border-border">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center">
                     <Calendar className="text-secondary" size={24} />
                   </div>

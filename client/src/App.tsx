@@ -5,6 +5,12 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Memphis from "./pages/Memphis";
+import Birmingham from "./pages/Birmingham";
+import Selma from "./pages/Selma";
+import Montgomery from "./pages/Montgomery";
+import Tuskegee from "./pages/Tuskegee";
+import Atlanta from "./pages/Atlanta";
 import About from "./pages/About";
 import Tours from "./pages/Tours";
 import Contact from "./pages/Contact";
@@ -17,6 +23,12 @@ function Router() {
       <Route path={"/about"} component={About} />
       <Route path={"/tours"} component={Tours} />
       <Route path={"/contact"} component={Contact} />
+      <Route path={"/memphis"} component={Memphis} />
+      <Route path={"/birmingham"} component={Birmingham} />
+      <Route path={"/selma"} component={Selma} />
+      <Route path={"/montgomery"} component={Montgomery} />
+      <Route path={"/tuskegee"} component={Tuskegee} />
+      <Route path={"/atlanta"} component={Atlanta} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
