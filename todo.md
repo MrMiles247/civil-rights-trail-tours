@@ -63,4 +63,12 @@
 - [x] Add city pages to navigation routing
 - [x] Match Canva document visual aesthetic (tan/beige backgrounds, bold headers)
 - [x] Test all city pages and image loading
-- [ ] Create checkpoint with enhanced content
+- [x] Create checkpoint with enhanced content
+
+## Header Photo Update
+- [x] Upload header photo (Headerphoto.avif) to CDN using manus-upload-file
+- [x] Replace homepage hero section background image with uploaded header photo
+- [x] Ensure header photo displays properly on all screen sizes
+- [x] Review PDF (Untitleddesign.pdf) for additional design guidance
+- [x] Test header photo loading and appearance
+- [ ] Create checkpoint with updated header photo

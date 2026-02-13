@@ -12,14 +12,17 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        {/* Background overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-        
-        {/* Decorative elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary rounded-full blur-3xl" />
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029344895/BiHOzyJndBZYajQl.avif"
+            alt="Civil Rights Trail Tours Group"
+            className="w-full h-full object-cover"
+          />
         </div>
+        
+        {/* Background overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/85 to-background" />
 
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
