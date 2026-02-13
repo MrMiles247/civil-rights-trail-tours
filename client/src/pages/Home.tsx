@@ -15,7 +15,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029344895/BiHOzyJndBZYajQl.avif"
+            src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029344895/mPyuuILWmTsJtAUG.jpg"
             alt="Civil Rights Trail Tours Group"
             className="w-full h-full object-cover"
           />

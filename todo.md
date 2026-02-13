@@ -71,4 +71,12 @@
 - [x] Ensure header photo displays properly on all screen sizes
 - [x] Review PDF (Untitleddesign.pdf) for additional design guidance
 - [x] Test header photo loading and appearance
-- [ ] Create checkpoint with updated header photo
+- [x] Create checkpoint with updated header photo
+
+## Crop Header Photo
+- [x] Crop header photo to remove text and borders
+- [x] Focus on the group photo only
+- [x] Upload cropped image to CDN
+- [x] Update homepage with cropped image
+- [x] Test cropped image display
+- [ ] Create checkpoint with cropped header photo
