@@ -89,4 +89,70 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+// Tours queries
+export async function getAllTours() {
+  const db = await getDb();
+  if (!db) return [];
+  const { tours } = await import("../drizzle/schema");
+  return db.select().from(tours);
+}
+
+export async function getTourById(id: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const { tours } = await import("../drizzle/schema");
+  const result = await db.select().from(tours).where(eq(tours.id, id)).limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
+
+// Available dates queries
+export async function getAvailableDatesByTourId(tourId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  const { availableDates } = await import("../drizzle/schema");
+  const { gt } = await import("drizzle-orm");
+  return db.select().from(availableDates)
+    .where(eq(availableDates.tourId, tourId))
+    .orderBy(availableDates.date);
+}
+
+export async function getAllAvailableDates() {
+  const db = await getDb();
+  if (!db) return [];
+  const { availableDates } = await import("../drizzle/schema");
+  return db.select().from(availableDates).orderBy(availableDates.date);
+}
+
+export async function getAvailableDateById(id: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const { availableDates } = await import("../drizzle/schema");
+  const result = await db.select().from(availableDates).where(eq(availableDates.id, id)).limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
+
+export async function updateAvailableDateBookingCount(id: number, increment: number) {
+  const db = await getDb();
+  if (!db) return;
+  const { availableDates } = await import("../drizzle/schema");
+  const { sql } = await import("drizzle-orm");
+  await db.update(availableDates)
+    .set({ currentBookings: sql`currentBookings + ${increment}` })
+    .where(eq(availableDates.id, id));
+}
+
+// Bookings queries
+export async function createBooking(booking: any) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const { bookings } = await import("../drizzle/schema");
+  const result = await db.insert(bookings).values(booking);
+  return result;
+}
+
+export async function getAllBookings() {
+  const db = await getDb();
+  if (!db) return [];
+  const { bookings } = await import("../drizzle/schema");
+  return db.select().from(bookings).orderBy(bookings.createdAt);
+}

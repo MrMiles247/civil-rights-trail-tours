@@ -1,31 +1,171 @@
-import { useAuth } from "@/_core/hooks/useAuth";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { getLoginUrl } from "@/const";
-import { Streamdown } from 'streamdown';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowRight, Calendar, Users, Award, MapPin } from "lucide-react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Workflow, Frontend Best Practices, Design Guide and Common Pitfalls
- */
 export default function Home() {
-  // The userAuth hooks provides authentication state
-  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
-  let { user, loading, error, isAuthenticated, logout } = useAuth();
-
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
-
   return (
     <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
+      <Navigation />
+
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        {/* Background overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+        
+        {/* Decorative elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary rounded-full blur-3xl" />
+        </div>
+
+        <div className="container relative z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <div className="space-y-4">
+              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+                <span className="text-foreground">Journey Through</span>
+                <br />
+                <span className="text-primary">America's Civil Rights History</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+                Experience a profound exploration of pivotal moments that shaped our nation. 
+                From Memphis to Atlanta, walk where history was made.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link href="/tours">
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8">
+                  Explore Tours
+                  <ArrowRight className="ml-2" size={20} />
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button size="lg" variant="outline" className="text-lg px-8 border-primary text-primary hover:bg-primary/10">
+                  Book Now
+                </Button>
+              </Link>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12">
+              <div className="space-y-2">
+                <div className="text-4xl font-bold text-primary">100+</div>
+                <div className="text-sm text-muted-foreground">Tours Completed</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-4xl font-bold text-primary">6</div>
+                <div className="text-sm text-muted-foreground">Historic Cities</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-4xl font-bold text-primary">2018</div>
+                <div className="text-sm text-muted-foreground">Established</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-4xl font-bold text-primary">★★★★★</div>
+                <div className="text-sm text-muted-foreground">Guest Reviews</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-card">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Why Choose <span className="text-primary">Our Tours</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              We provide an immersive, educational experience that honors the past and inspires the future.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="bg-background border-border hover:border-primary transition-colors">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                  <Users className="text-primary" size={24} />
+                </div>
+                <CardTitle className="text-foreground">Expert Guides</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-muted-foreground">
+                  Led by knowledgeable historians passionate about Civil Rights heritage
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-background border-border hover:border-primary transition-colors">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mb-4">
+                  <MapPin className="text-secondary" size={24} />
+                </div>
+                <CardTitle className="text-foreground">Authentic Sites</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-muted-foreground">
+                  Visit actual locations where pivotal Civil Rights events unfolded
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-background border-border hover:border-primary transition-colors">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                  <Calendar className="text-primary" size={24} />
+                </div>
+                <CardTitle className="text-foreground">Flexible Scheduling</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-muted-foreground">
+                  Multiple tour dates available with easy online booking system
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-background border-border hover:border-primary transition-colors">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mb-4">
+                  <Award className="text-secondary" size={24} />
+                </div>
+                <CardTitle className="text-foreground">VIP Experience</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-muted-foreground">
+                  Curated accommodations and Southern cuisine throughout your journey
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-20 bg-gradient-to-b from-background to-card">
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center space-y-6">
+            <h2 className="text-4xl font-bold text-foreground">
+              Ready to Begin Your <span className="text-primary">Journey</span>?
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Join us for a transformative experience that honors the struggle, celebrates the strength, 
+              and carries forward the legacy of the Civil Rights Movement.
+            </p>
+            <Link href="/contact">
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-12">
+                Book Your Tour Today
+                <ArrowRight className="ml-2" size={20} />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }
