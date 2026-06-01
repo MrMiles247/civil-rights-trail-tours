@@ -27,12 +27,12 @@ export default function Home() {
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+              <h1 className="max-w-full text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
                 <span className="text-foreground">Journey Through</span>
                 <br />
                 <span className="text-primary">America's Civil Rights History</span>
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
                 Experience a profound exploration of pivotal moments that shaped our nation. 
                 From Memphis to Atlanta, walk where history was made.
               </p>
@@ -53,21 +53,21 @@ export default function Home() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12">
-              <div className="space-y-2">
-                <div className="text-4xl font-bold text-primary">100+</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 md:gap-6 pt-12">
+              <div className="min-w-0 space-y-2">
+                <div className="text-3xl sm:text-4xl font-bold text-primary">100+</div>
                 <div className="text-sm text-muted-foreground">Tours Completed</div>
               </div>
-              <div className="space-y-2">
-                <div className="text-4xl font-bold text-primary">6</div>
+              <div className="min-w-0 space-y-2">
+                <div className="text-3xl sm:text-4xl font-bold text-primary">6</div>
                 <div className="text-sm text-muted-foreground">Historic Cities</div>
               </div>
-              <div className="space-y-2">
-                <div className="text-4xl font-bold text-primary">2018</div>
+              <div className="min-w-0 space-y-2">
+                <div className="text-3xl sm:text-4xl font-bold text-primary">2018</div>
                 <div className="text-sm text-muted-foreground">Established</div>
               </div>
-              <div className="space-y-2">
-                <div className="text-4xl font-bold text-primary">★★★★★</div>
+              <div className="min-w-0 space-y-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary">★★★★★</div>
                 <div className="text-sm text-muted-foreground">Guest Reviews</div>
               </div>
             </div>
