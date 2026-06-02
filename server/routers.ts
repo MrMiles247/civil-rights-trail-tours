@@ -1,17 +1,11 @@
+import { z } from "zod";
 import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 
-const clientSchema = () => {
-  const { z } = require("zod");
-  return z.object({ fullName: z.string().min(1), email: z.string().email(), phone: z.string().min(1), city: z.string().min(1), status: z.enum(["lead", "booked", "active", "completed", "follow-up"]), tourInterest: z.string().min(1), guestCount: z.number().min(1), travelWindow: z.string().min(1), budget: z.string().min(1), source: z.string().min(1), notes: z.string().optional().default(""), lastContacted: z.string().optional() });
-};
-
-const mediaSchema = () => {
-  const { z } = require("zod");
-  return z.object({ type: z.enum(["photo", "video"]), title: z.string().min(1), description: z.string().optional().default(""), location: z.string().optional().default(""), url: z.string().optional().default(""), thumbnailUrl: z.string().optional().default(""), featured: z.boolean().default(false), published: z.boolean().default(true), sortOrder: z.number().default(99) });
-};
+const clientSchema = z.object({ fullName: z.string().min(1), email: z.string().email(), phone: z.string().min(1), city: z.string().min(1), status: z.enum(["lead", "booked", "active", "completed", "follow-up"]), tourInterest: z.string().min(1), guestCount: z.number().min(1), travelWindow: z.string().min(1), budget: z.string().min(1), source: z.string().min(1), notes: z.string().optional().default(""), lastContacted: z.string().optional() });
+const mediaSchema = z.object({ type: z.enum(["photo", "video"]), title: z.string().min(1), description: z.string().optional().default(""), location: z.string().optional().default(""), url: z.string().optional().default(""), thumbnailUrl: z.string().optional().default(""), featured: z.boolean().default(false), published: z.boolean().default(true), sortOrder: z.number().default(99) });
 
 export const appRouter = router({
   system: systemRouter,
@@ -30,30 +24,30 @@ export const appRouter = router({
     publish: publicProcedure.mutation(async () => { const { requestPublish } = await import("./crmStore"); return requestPublish(); }),
     clients: router({
       list: publicProcedure.query(async () => { const { listClients } = await import("./crmStore"); return listClients(); }),
-      create: publicProcedure.input((val: unknown) => clientSchema().parse(val)).mutation(async ({ input }) => { const { createClient } = await import("./crmStore"); return createClient(input); }),
-      update: publicProcedure.input((val: unknown) => { const { z } = require("zod"); return z.object({ id: z.number(), data: clientSchema().partial() }).parse(val); }).mutation(async ({ input }) => { const { updateClient } = await import("./crmStore"); return updateClient(input.id, input.data); }),
-      delete: publicProcedure.input((val: unknown) => { const { z } = require("zod"); return z.object({ id: z.number() }).parse(val); }).mutation(async ({ input }) => { const { deleteClient } = await import("./crmStore"); return deleteClient(input.id); }),
+      create: publicProcedure.input(clientSchema).mutation(async ({ input }) => { const { createClient } = await import("./crmStore"); return createClient(input); }),
+      update: publicProcedure.input(z.object({ id: z.number(), data: clientSchema.partial() })).mutation(async ({ input }) => { const { updateClient } = await import("./crmStore"); return updateClient(input.id, input.data); }),
+      delete: publicProcedure.input(z.object({ id: z.number() })).mutation(async ({ input }) => { const { deleteClient } = await import("./crmStore"); return deleteClient(input.id); }),
     }),
     media: router({
-      list: publicProcedure.input((val: unknown) => { const { z } = require("zod"); return z.object({ includeUnpublished: z.boolean().optional().default(false) }).optional().default({ includeUnpublished: false }).parse(val); }).query(async ({ input }) => { const { listMedia } = await import("./crmStore"); return listMedia(input.includeUnpublished); }),
-      create: publicProcedure.input((val: unknown) => mediaSchema().parse(val)).mutation(async ({ input }) => { const { createMedia } = await import("./crmStore"); return createMedia(input); }),
-      update: publicProcedure.input((val: unknown) => { const { z } = require("zod"); return z.object({ id: z.number(), data: mediaSchema().partial() }).parse(val); }).mutation(async ({ input }) => { const { updateMedia } = await import("./crmStore"); return updateMedia(input.id, input.data); }),
-      delete: publicProcedure.input((val: unknown) => { const { z } = require("zod"); return z.object({ id: z.number() }).parse(val); }).mutation(async ({ input }) => { const { deleteMedia } = await import("./crmStore"); return deleteMedia(input.id); }),
+      list: publicProcedure.input(z.object({ includeUnpublished: z.boolean().optional().default(false) }).optional().default({ includeUnpublished: false })).query(async ({ input }) => { const { listMedia } = await import("./crmStore"); return listMedia(input.includeUnpublished); }),
+      create: publicProcedure.input(mediaSchema).mutation(async ({ input }) => { const { createMedia } = await import("./crmStore"); return createMedia(input); }),
+      update: publicProcedure.input(z.object({ id: z.number(), data: mediaSchema.partial() })).mutation(async ({ input }) => { const { updateMedia } = await import("./crmStore"); return updateMedia(input.id, input.data); }),
+      delete: publicProcedure.input(z.object({ id: z.number() })).mutation(async ({ input }) => { const { deleteMedia } = await import("./crmStore"); return deleteMedia(input.id); }),
     }),
   }),
 
   tours: router({
     list: publicProcedure.query(async () => { const { getAllTours } = await import("./db"); return getAllTours(); }),
-    getById: publicProcedure.input((val: unknown) => { const { z } = require("zod"); return z.object({ id: z.number() }).parse(val); }).query(async ({ input }) => { const { getTourById } = await import("./db"); return getTourById(input.id); }),
+    getById: publicProcedure.input(z.object({ id: z.number() })).query(async ({ input }) => { const { getTourById } = await import("./db"); return getTourById(input.id); }),
   }),
 
   availableDates: router({
     list: publicProcedure.query(async () => { const { getAllAvailableDates } = await import("./db"); return getAllAvailableDates(); }),
-    getByTourId: publicProcedure.input((val: unknown) => { const { z } = require("zod"); return z.object({ tourId: z.number() }).parse(val); }).query(async ({ input }) => { const { getAvailableDatesByTourId } = await import("./db"); return getAvailableDatesByTourId(input.tourId); }),
+    getByTourId: publicProcedure.input(z.object({ tourId: z.number() })).query(async ({ input }) => { const { getAvailableDatesByTourId } = await import("./db"); return getAvailableDatesByTourId(input.tourId); }),
   }),
 
   bookings: router({
-    create: publicProcedure.input((val: unknown) => { const { z } = require("zod"); return z.object({ tourId: z.number(), availableDateId: z.number(), customerName: z.string().min(1), customerEmail: z.string().email(), customerPhone: z.string().min(1), numberOfGuests: z.number().min(1), specialRequests: z.string().optional() }).parse(val); }).mutation(async ({ input }) => {
+    create: publicProcedure.input(z.object({ tourId: z.number(), availableDateId: z.number(), customerName: z.string().min(1), customerEmail: z.string().email(), customerPhone: z.string().min(1), numberOfGuests: z.number().min(1), specialRequests: z.string().optional() })).mutation(async ({ input }) => {
       const { createBooking, getAvailableDateById, getTourById, updateAvailableDateBookingCount } = await import("./db");
       const { notifyOwner } = await import("./_core/notification");
       const availableDate = await getAvailableDateById(input.availableDateId);
@@ -68,7 +62,7 @@ export const appRouter = router({
   }),
 
   calendar: router({
-    generateICS: publicProcedure.input((val: unknown) => { const { z } = require("zod"); return z.object({ bookingId: z.number() }).parse(val); }).query(async ({ input }) => {
+    generateICS: publicProcedure.input(z.object({ bookingId: z.number() })).query(async ({ input }) => {
       const { getAllBookings, getTourById, getAvailableDateById } = await import("./db");
       const { generateICalendar } = await import("./icalendar");
       const bookings = await getAllBookings();
