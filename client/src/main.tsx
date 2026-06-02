@@ -37,11 +37,22 @@ queryClient.getMutationCache().subscribe(event => {
   }
 });
 
+const getAdminHeaders = () => {
+  if (typeof window === "undefined") return {};
+  const accessCode = window.sessionStorage.getItem("adminAccessCode");
+  const role = window.sessionStorage.getItem("adminRole");
+  return {
+    ...(accessCode ? { "x-admin-access-code": accessCode } : {}),
+    ...(role ? { "x-admin-role": role } : {}),
+  };
+};
+
 const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
       url: "/api/trpc",
       transformer: superjson,
+      headers: getAdminHeaders,
       fetch(input, init) {
         return globalThis.fetch(input, {
           ...(init ?? {}),
