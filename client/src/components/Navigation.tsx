@@ -3,6 +3,14 @@ import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/tours", label: "Tours" },
+  { href: "/gallery", label: "Tour Gallery" },
+  { href: "/contact", label: "Contact" },
+];
+
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -21,27 +29,14 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/">
-              <a className="text-foreground hover:text-primary transition-colors font-medium">
-                Home
-              </a>
-            </Link>
-            <Link href="/about">
-              <a className="text-foreground hover:text-primary transition-colors font-medium">
-                About
-              </a>
-            </Link>
-            <Link href="/tours">
-              <a className="text-foreground hover:text-primary transition-colors font-medium">
-                Tours
-              </a>
-            </Link>
-            <Link href="/contact">
-              <a className="text-foreground hover:text-primary transition-colors font-medium">
-                Contact
-              </a>
-            </Link>
+          <div className="hidden md:flex items-center space-x-6">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href}>
+                <a className="text-foreground hover:text-primary transition-colors font-medium whitespace-nowrap">
+                  {link.label}
+                </a>
+              </Link>
+            ))}
             <Link href="/contact">
               <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90">
                 Book Now
@@ -61,38 +56,16 @@ export default function Navigation() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 space-y-4 border-t border-border">
-            <Link href="/">
-              <a
-                className="block text-foreground hover:text-primary transition-colors font-medium py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Home
-              </a>
-            </Link>
-            <Link href="/about">
-              <a
-                className="block text-foreground hover:text-primary transition-colors font-medium py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                About
-              </a>
-            </Link>
-            <Link href="/tours">
-              <a
-                className="block text-foreground hover:text-primary transition-colors font-medium py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Tours
-              </a>
-            </Link>
-            <Link href="/contact">
-              <a
-                className="block text-foreground hover:text-primary transition-colors font-medium py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Contact
-              </a>
-            </Link>
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href}>
+                <a
+                  className="block text-foreground hover:text-primary transition-colors font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              </Link>
+            ))}
             <Link href="/contact">
               <Button
                 variant="default"
