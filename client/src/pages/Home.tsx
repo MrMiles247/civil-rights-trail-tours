@@ -1,9 +1,18 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Calendar, Users, Award, MapPin } from "lucide-react";
+import { ArrowRight, Calendar, Users, Award, MapPin, Building2, GraduationCap, HeartHandshake, Landmark, Church, BriefcaseBusiness } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+
+const previousClients = [
+  { name: "Church Groups", detail: "Faith communities planning reflective heritage travel", icon: Church },
+  { name: "Educators & Students", detail: "Schools, colleges, and learning cohorts", icon: GraduationCap },
+  { name: "Community Organizations", detail: "Local leaders, nonprofits, and civic groups", icon: HeartHandshake },
+  { name: "Heritage Travelers", detail: "Families and reunion groups honoring shared history", icon: Landmark },
+  { name: "Corporate ERGs", detail: "Employee resource groups and leadership teams", icon: BriefcaseBusiness },
+  { name: "Travel Clubs", detail: "Private groups seeking meaningful guided experiences", icon: Building2 },
+];
 
 export default function Home() {
   return (
@@ -143,6 +152,42 @@ export default function Home() {
                 </CardDescription>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Previous Clients Section */}
+      <section className="py-20 bg-background overflow-hidden">
+        <div className="container">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
+              Trusted Tour Experiences
+            </p>
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Previous <span className="text-primary">Clients</span>
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Civil Rights Trail Tours has supported meaningful journeys for groups who want history, hospitality, and careful coordination handled with respect.
+            </p>
+          </div>
+
+          <div className="relative mx-auto max-w-6xl rounded-lg border border-border bg-card/70 p-4 sm:p-6">
+            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-card to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-card to-transparent pointer-events-none" />
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {previousClients.map((client) => (
+                <div
+                  key={client.name}
+                  className="group rounded-md border border-border bg-background/80 p-5 transition-all hover:border-primary hover:bg-background"
+                >
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/15 text-primary group-hover:bg-secondary/20 group-hover:text-secondary">
+                    <client.icon size={24} />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">{client.name}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{client.detail}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
