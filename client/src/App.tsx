@@ -13,6 +13,7 @@ import Tuskegee from "./pages/Tuskegee";
 import Atlanta from "./pages/Atlanta";
 import About from "./pages/About";
 import Tours from "./pages/Tours";
+import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 
 function Router() {
@@ -22,6 +23,7 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/about"} component={About} />
       <Route path={"/tours"} component={Tours} />
+      <Route path={"/gallery"} component={Gallery} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/memphis"} component={Memphis} />
       <Route path={"/birmingham"} component={Birmingham} />
