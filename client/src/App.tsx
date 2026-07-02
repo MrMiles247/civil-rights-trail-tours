@@ -6,7 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Memphis from "./pages/Memphis";
-import Birmingham from "./pages/Birmingham";
+import CivilRightsHistoryTour from "./pages/CivilRightsHistoryTour";
 import Selma from "./pages/Selma";
 import Montgomery from "./pages/Montgomery";
 import Tuskegee from "./pages/Tuskegee";
@@ -27,7 +27,11 @@ function Router() {
       <Route path={"/admin"} component={Admin} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/memphis"} component={Memphis} />
-      <Route path={"/birmingham"} component={Birmingham} />
+      <Route
+        path={"/civil-rights-history-tour"}
+        component={CivilRightsHistoryTour}
+      />
+      <Route path={"/birmingham"} component={CivilRightsHistoryTour} />
       <Route path={"/selma"} component={Selma} />
       <Route path={"/montgomery"} component={Montgomery} />
       <Route path={"/tuskegee"} component={Tuskegee} />
