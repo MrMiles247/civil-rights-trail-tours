@@ -1,17 +1,42 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Calendar, Users, Award, MapPin, Building2, GraduationCap, HeartHandshake, Landmark, Church, BriefcaseBusiness } from "lucide-react";
+import { ArrowRight, Calendar, Users, Award, MapPin, Building2, GraduationCap, HeartHandshake, Landmark, BriefcaseBusiness } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { clientLogos } from "@/data/clientLogos";
 
 const previousClients = [
-  { name: "Church Groups", detail: "Faith communities planning reflective heritage travel", icon: Church },
-  { name: "Educators & Students", detail: "Schools, colleges, and learning cohorts", icon: GraduationCap },
-  { name: "Community Organizations", detail: "Local leaders, nonprofits, and civic groups", icon: HeartHandshake },
-  { name: "Heritage Travelers", detail: "Families and reunion groups honoring shared history", icon: Landmark },
-  { name: "Corporate ERGs", detail: "Employee resource groups and leadership teams", icon: BriefcaseBusiness },
-  { name: "Travel Clubs", detail: "Private groups seeking meaningful guided experiences", icon: Building2 },
+  {
+    name: "Corporate Leadership",
+    detail: "Purposeful retreats that unite leadership teams through history, reflection, and shared perspective.",
+    icon: BriefcaseBusiness,
+  },
+  {
+    name: "Educators & Students",
+    detail: "Schools, colleges, and learning cohorts",
+    icon: GraduationCap,
+  },
+  {
+    name: "Community Organizations",
+    detail: "Local leaders, nonprofits, and civic groups",
+    icon: HeartHandshake,
+  },
+  {
+    name: "Heritage Travelers",
+    detail: "Families and reunion groups honoring shared history",
+    icon: Landmark,
+  },
+  {
+    name: "Corporate ERGs",
+    detail: "Employee resource groups and leadership teams",
+    icon: BriefcaseBusiness,
+  },
+  {
+    name: "Travel Clubs",
+    detail: "Private groups seeking meaningful guided experiences",
+    icon: Building2,
+  },
 ];
 
 export default function Home() {
@@ -29,7 +54,7 @@ export default function Home() {
             className="w-full h-full object-cover"
           />
         </div>
-        
+
         {/* Background overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/85 to-background" />
 
@@ -42,8 +67,7 @@ export default function Home() {
                 <span className="text-primary">America's Civil Rights History</span>
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-                Experience a profound exploration of pivotal moments that shaped our nation. 
-                From Memphis to Atlanta, walk where history was made.
+                Experience a profound exploration of pivotal moments that shaped our nation. From Memphis to Atlanta, walk where history was made.
               </p>
             </div>
 
@@ -91,9 +115,7 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Why Choose <span className="text-primary">Our Tours</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              We provide an immersive, educational experience that honors the past and inspires the future.
-            </p>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">We provide an immersive, educational experience that honors the past and inspires the future.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -105,9 +127,7 @@ export default function Home() {
                 <CardTitle className="text-foreground">Expert Guides</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-muted-foreground">
-                  Led by knowledgeable historians passionate about Civil Rights heritage
-                </CardDescription>
+                <CardDescription className="text-muted-foreground">Led by knowledgeable historians passionate about Civil Rights heritage</CardDescription>
               </CardContent>
             </Card>
 
@@ -119,9 +139,7 @@ export default function Home() {
                 <CardTitle className="text-foreground">Authentic Sites</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-muted-foreground">
-                  Visit actual locations where pivotal Civil Rights events unfolded
-                </CardDescription>
+                <CardDescription className="text-muted-foreground">Visit actual locations where pivotal Civil Rights events unfolded</CardDescription>
               </CardContent>
             </Card>
 
@@ -133,9 +151,7 @@ export default function Home() {
                 <CardTitle className="text-foreground">Flexible Scheduling</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-muted-foreground">
-                  Multiple tour dates available with easy online booking system
-                </CardDescription>
+                <CardDescription className="text-muted-foreground">Multiple tour dates available with easy online booking system</CardDescription>
               </CardContent>
             </Card>
 
@@ -147,9 +163,7 @@ export default function Home() {
                 <CardTitle className="text-foreground">VIP Experience</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-muted-foreground">
-                  Curated accommodations and Southern cuisine throughout your journey
-                </CardDescription>
+                <CardDescription className="text-muted-foreground">Curated accommodations and Southern cuisine throughout your journey</CardDescription>
               </CardContent>
             </Card>
           </div>
@@ -157,36 +171,50 @@ export default function Home() {
       </section>
 
       {/* Previous Clients Section */}
-      <section className="py-20 bg-background overflow-hidden">
+      <section className="overflow-hidden bg-background py-20">
         <div className="container">
-          <div className="mx-auto mb-12 max-w-3xl text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
-              Trusted Tour Experiences
-            </p>
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Previous <span className="text-primary">Clients</span>
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Civil Rights Trail Tours has supported meaningful journeys for groups who want history, hospitality, and careful coordination handled with respect.
+          <div className="mx-auto mb-12 grid max-w-6xl gap-6 border-b border-border pb-10 md:grid-cols-[0.8fr_1.2fr] md:items-end">
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">Trusted Tour Experiences</p>
+              <h2 className="text-4xl font-bold text-foreground md:text-5xl">
+                Previous <span className="text-primary">Clients</span>
+              </h2>
+            </div>
+            <p className="text-lg leading-8 text-muted-foreground md:text-xl">
+              Civil Rights Trail Tours creates meaningful journeys for organizations seeking history, hospitality, and thoughtful coordination delivered with respect.
             </p>
           </div>
 
-          <div className="relative mx-auto max-w-6xl rounded-lg border border-border bg-card/70 p-4 sm:p-6">
-            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-card to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-card to-transparent pointer-events-none" />
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {previousClients.map((client) => (
-                <div
-                  key={client.name}
-                  className="group rounded-md border border-border bg-background/80 p-5 transition-all hover:border-primary hover:bg-background"
-                >
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/15 text-primary group-hover:bg-secondary/20 group-hover:text-secondary">
-                    <client.icon size={24} />
+          <div className="mx-auto max-w-6xl">
+            <div className="grid grid-cols-1 border-l border-t border-border sm:grid-cols-2 lg:grid-cols-3">
+              {previousClients.map(client => (
+                <div key={client.name} className="group min-h-48 border-b border-r border-border bg-card/50 p-6 transition-colors hover:bg-card">
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center border border-primary/40 bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <client.icon size={22} />
                   </div>
                   <h3 className="text-xl font-bold text-foreground">{client.name}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{client.detail}</p>
+                  <p className="mt-2 max-w-sm text-sm leading-6 text-muted-foreground">{client.detail}</p>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-14">
+              <div className="mb-6 flex items-center gap-4">
+                <p className="shrink-0 text-sm font-semibold uppercase tracking-widest text-primary">Organizations We Have Served</p>
+                <div className="h-px w-full bg-border" />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+                {clientLogos.map(client => (
+                  <figure
+                    key={client.name}
+                    className="flex aspect-[4/3] min-w-0 items-center justify-center rounded-md border border-border bg-white p-4 shadow-sm transition-transform duration-300 hover:-translate-y-1 sm:p-6"
+                  >
+                    <img src={client.src} alt={`${client.name} logo`} loading="lazy" className="h-full w-full object-contain" />
+                    <figcaption className="sr-only">{client.name}</figcaption>
+                  </figure>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -200,8 +228,7 @@ export default function Home() {
               Ready to Begin Your <span className="text-primary">Journey</span>?
             </h2>
             <p className="text-xl text-muted-foreground">
-              Join us for a transformative experience that honors the struggle, celebrates the strength, 
-              and carries forward the legacy of the Civil Rights Movement.
+              Join us for a transformative experience that honors the struggle, celebrates the strength, and carries forward the legacy of the Civil Rights Movement.
             </p>
             <Link href="/contact">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-12">
