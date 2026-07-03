@@ -41,13 +41,14 @@ export default function Tours() {
       ],
     },
     {
-      name: "Selma",
-      slug: "selma",
-      description: "A symbol of courage and a beacon for change",
+      name: "5-Day Washington, D.C. Black Heritage Tour",
+      slug: "washington-dc-black-heritage-tour",
+      description:
+        "A curated journey through Black history, culture, dining, neighborhoods, and national landmarks",
       highlights: [
-        "Edmund Pettus Bridge",
-        "Brown Chapel AME Church",
-        "National Voting Rights Museum",
+        "5 curated days",
+        "8+ historic landmarks",
+        "Packages from $1,995",
       ],
     },
     {
