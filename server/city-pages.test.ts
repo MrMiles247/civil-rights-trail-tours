@@ -14,18 +14,21 @@ describe("City Itinerary Pages", () => {
       name: "8-Day Civil Rights History Tour",
       slug: "civil-rights-history-tour",
     },
-    { name: "Selma", slug: "selma" },
+    {
+      name: "5-Day Washington, D.C. Black Heritage Tour",
+      slug: "washington-dc-black-heritage-tour",
+    },
     { name: "Montgomery", slug: "montgomery" },
     { name: "Tuskegee", slug: "tuskegee" },
     { name: "Atlanta", slug: "atlanta" },
   ];
 
-  it("should have the signature itinerary and five city pages defined", () => {
+  it("should have two signature itineraries and four city pages defined", () => {
     expect(cities).toHaveLength(6);
     expect(cities.map(c => c.name)).toEqual([
       "Memphis",
       "8-Day Civil Rights History Tour",
-      "Selma",
+      "5-Day Washington, D.C. Black Heritage Tour",
       "Montgomery",
       "Tuskegee",
       "Atlanta",
