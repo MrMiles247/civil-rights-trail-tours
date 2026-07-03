@@ -7,7 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Memphis from "./pages/Memphis";
 import CivilRightsHistoryTour from "./pages/CivilRightsHistoryTour";
-import Selma from "./pages/Selma";
+import WashingtonBlackHeritageTour from "./pages/WashingtonBlackHeritageTour";
 import Montgomery from "./pages/Montgomery";
 import Tuskegee from "./pages/Tuskegee";
 import Atlanta from "./pages/Atlanta";
@@ -32,7 +32,11 @@ function Router() {
         component={CivilRightsHistoryTour}
       />
       <Route path={"/birmingham"} component={CivilRightsHistoryTour} />
-      <Route path={"/selma"} component={Selma} />
+      <Route
+        path={"/washington-dc-black-heritage-tour"}
+        component={WashingtonBlackHeritageTour}
+      />
+      <Route path={"/selma"} component={WashingtonBlackHeritageTour} />
       <Route path={"/montgomery"} component={Montgomery} />
       <Route path={"/tuskegee"} component={Tuskegee} />
       <Route path={"/atlanta"} component={Atlanta} />
