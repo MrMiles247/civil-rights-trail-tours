@@ -5,7 +5,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-import Memphis from "./pages/Memphis";
+import RTJGolfTrailTour from "./pages/RTJGolfTrailTour";
 import CivilRightsHistoryTour from "./pages/CivilRightsHistoryTour";
 import WashingtonBlackHeritageTour from "./pages/WashingtonBlackHeritageTour";
 import Montgomery from "./pages/Montgomery";
@@ -26,7 +26,8 @@ function Router() {
       <Route path={"/gallery"} component={Gallery} />
       <Route path={"/admin"} component={Admin} />
       <Route path={"/contact"} component={Contact} />
-      <Route path={"/memphis"} component={Memphis} />
+      <Route path={"/rtj-golf-trail-tour"} component={RTJGolfTrailTour} />
+      <Route path={"/memphis"} component={RTJGolfTrailTour} />
       <Route
         path={"/civil-rights-history-tour"}
         component={CivilRightsHistoryTour}
