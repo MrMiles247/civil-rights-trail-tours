@@ -6,6 +6,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { clientLogos } from "@/data/clientLogos";
 import { schoolLogos } from "@/data/schoolLogos";
+import { partnerLogos } from "@/data/partnerLogos";
 
 const previousClients = [
   {
@@ -19,8 +20,8 @@ const previousClients = [
     icon: GraduationCap,
   },
   {
-    name: "Community Organizations",
-    detail: "Local leaders, nonprofits, and civic groups",
+    name: "Company Partnerships",
+    detail: "Aligned partnerships that expand access to meaningful travel, service, and cultural learning.",
     icon: HeartHandshake,
   },
   {
@@ -213,6 +214,25 @@ export default function Home() {
                   >
                     <img src={client.src} alt={`${client.name} logo`} loading="lazy" className="h-full w-full object-contain" />
                     <figcaption className="sr-only">{client.name}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <div className="mb-6 flex items-center gap-4">
+                <p className="shrink-0 text-sm font-semibold uppercase tracking-widest text-primary">Our Company Partners</p>
+                <div className="h-px w-full bg-border" />
+              </div>
+
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                {partnerLogos.map(partner => (
+                  <figure
+                    key={partner.name}
+                    className="flex aspect-[4/3] min-w-0 items-center justify-center rounded-md border border-border bg-white p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1"
+                  >
+                    <img src={partner.src} alt={`${partner.name} logo`} loading="lazy" className="h-full w-full object-contain" />
+                    <figcaption className="sr-only">{partner.name}</figcaption>
                   </figure>
                 ))}
               </div>
