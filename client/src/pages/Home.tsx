@@ -5,6 +5,7 @@ import { ArrowRight, Calendar, Users, Award, MapPin, Building2, GraduationCap, H
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { clientLogos } from "@/data/clientLogos";
+import { schoolLogos } from "@/data/schoolLogos";
 
 const previousClients = [
   {
@@ -14,7 +15,7 @@ const previousClients = [
   },
   {
     name: "Educators & Students",
-    detail: "Schools, colleges, and learning cohorts",
+    detail: "Schools and universities that support travel education through immersive, place-based learning.",
     icon: GraduationCap,
   },
   {
@@ -212,6 +213,25 @@ export default function Home() {
                   >
                     <img src={client.src} alt={`${client.name} logo`} loading="lazy" className="h-full w-full object-contain" />
                     <figcaption className="sr-only">{client.name}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <div className="mb-6 flex items-center gap-4">
+                <p className="shrink-0 text-sm font-semibold uppercase tracking-widest text-primary">Educational Partners We Have Served</p>
+                <div className="h-px w-full bg-border" />
+              </div>
+
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                {schoolLogos.map(school => (
+                  <figure
+                    key={school.name}
+                    className="flex aspect-[4/3] min-w-0 items-center justify-center rounded-md border border-border bg-white p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1"
+                  >
+                    <img src={school.src} alt={`${school.name} logo`} loading="lazy" className="h-full w-full object-contain" />
+                    <figcaption className="sr-only">{school.name}</figcaption>
                   </figure>
                 ))}
               </div>
