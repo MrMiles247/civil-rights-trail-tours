@@ -19,14 +19,14 @@ export default function Tours() {
 
   const cities = [
     {
-      name: "Memphis",
-      slug: "memphis",
+      name: "6-Day RTJ Golf Trail Tour",
+      slug: "rtj-golf-trail-tour",
       description:
-        "Where the echoes of blues and the fight for equality resonate through the air",
+        "Championship golf, Black history, culture, dining, and spirited competition across Alabama",
       highlights: [
-        "National Civil Rights Museum",
-        "Lorraine Motel",
-        "Beale Street",
+        "4 Robert Trent Jones Trail sites",
+        "6 curated days",
+        "Packages from $1,950",
       ],
     },
     {
