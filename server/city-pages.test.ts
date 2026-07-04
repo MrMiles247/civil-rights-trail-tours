@@ -9,7 +9,10 @@ import { describe, expect, it } from "vitest";
 
 describe("City Itinerary Pages", () => {
   const cities = [
-    { name: "Memphis", slug: "memphis" },
+    {
+      name: "6-Day RTJ Golf Trail Tour",
+      slug: "rtj-golf-trail-tour",
+    },
     {
       name: "8-Day Civil Rights History Tour",
       slug: "civil-rights-history-tour",
@@ -26,7 +29,7 @@ describe("City Itinerary Pages", () => {
   it("should have two signature itineraries and four city pages defined", () => {
     expect(cities).toHaveLength(6);
     expect(cities.map(c => c.name)).toEqual([
-      "Memphis",
+      "6-Day RTJ Golf Trail Tour",
       "8-Day Civil Rights History Tour",
       "5-Day Washington, D.C. Black Heritage Tour",
       "Montgomery",
