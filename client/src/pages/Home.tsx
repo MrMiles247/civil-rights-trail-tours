@@ -64,12 +64,12 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="space-y-4">
               <h1 className="max-w-full text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
-                <span className="text-foreground">Journey Through</span>
+                <span className="text-foreground">Discover Black History and Culture</span>
                 <br />
-                <span className="text-primary">America's Civil Rights History</span>
+                <span className="text-primary">Throughout The Americas.</span>
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-                Experience a profound exploration of pivotal moments that shaped our nation. From Memphis to Atlanta, walk where history was made.
+              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+                Journey with us across the United States and around the world through immersive tours that connect Black history, living culture, and community.
               </p>
             </div>
 
