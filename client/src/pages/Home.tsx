@@ -94,8 +94,8 @@ export default function Home() {
                 <div className="text-sm text-muted-foreground">Tours Completed</div>
               </div>
               <div className="min-w-0 space-y-2">
-                <div className="text-3xl sm:text-4xl font-bold text-primary">6</div>
-                <div className="text-sm text-muted-foreground">Historic Cities</div>
+                <div className="text-3xl sm:text-4xl font-bold text-primary">8+</div>
+                <div className="text-sm text-muted-foreground">Custom Itineraries</div>
               </div>
               <div className="min-w-0 space-y-2">
                 <div className="text-3xl sm:text-4xl font-bold text-primary">2018</div>
