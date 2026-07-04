@@ -1,7 +1,22 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Calendar, Users, Award, MapPin, Building2, GraduationCap, HeartHandshake, Landmark, BriefcaseBusiness } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  ArrowRight,
+  Calendar,
+  Users,
+  Award,
+  MapPin,
+  GraduationCap,
+  HeartHandshake,
+  BriefcaseBusiness,
+} from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { clientLogos } from "@/data/clientLogos";
@@ -11,33 +26,21 @@ import { partnerLogos } from "@/data/partnerLogos";
 const previousClients = [
   {
     name: "Corporate Leadership",
-    detail: "Purposeful retreats that unite leadership teams through history, reflection, and shared perspective.",
+    detail:
+      "Purposeful retreats that unite leadership teams through history, reflection, and shared perspective.",
     icon: BriefcaseBusiness,
   },
   {
     name: "Educators & Students",
-    detail: "Schools and universities that support travel education through immersive, place-based learning.",
+    detail:
+      "Schools and universities that support travel education through immersive, place-based learning.",
     icon: GraduationCap,
   },
   {
     name: "Company Partnerships",
-    detail: "Aligned partnerships that expand access to meaningful travel, service, and cultural learning.",
+    detail:
+      "Aligned partnerships that expand access to meaningful travel, service, and cultural learning.",
     icon: HeartHandshake,
-  },
-  {
-    name: "Heritage Travelers",
-    detail: "Families and reunion groups honoring shared history",
-    icon: Landmark,
-  },
-  {
-    name: "Corporate ERGs",
-    detail: "Employee resource groups and leadership teams",
-    icon: BriefcaseBusiness,
-  },
-  {
-    name: "Travel Clubs",
-    detail: "Private groups seeking meaningful guided experiences",
-    icon: Building2,
   },
 ];
 
@@ -64,24 +67,35 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="space-y-4">
               <h1 className="max-w-full text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
-                <span className="text-foreground">Discover Black History and Culture</span>
+                <span className="text-foreground">
+                  Discover Black History and Culture
+                </span>
                 <br />
                 <span className="text-primary">Throughout The Americas.</span>
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-                Journey with us across the United States and around the world through immersive tours that connect Black history, living culture, and community.
+                Journey with us across the United States and around the world
+                through immersive tours that connect Black history, living
+                culture, and community.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link href="/tours">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8">
+                <Button
+                  size="lg"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8"
+                >
                   Explore Tours
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="text-lg px-8 border-primary text-primary hover:bg-primary/10">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8 border-primary text-primary hover:bg-primary/10"
+                >
                   Book Now
                 </Button>
               </Link>
@@ -90,20 +104,34 @@ export default function Home() {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 md:gap-6 pt-12">
               <div className="min-w-0 space-y-2">
-                <div className="text-3xl sm:text-4xl font-bold text-primary">100+</div>
-                <div className="text-sm text-muted-foreground">Tours Completed</div>
+                <div className="text-3xl sm:text-4xl font-bold text-primary">
+                  100+
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  Tours Completed
+                </div>
               </div>
               <div className="min-w-0 space-y-2">
-                <div className="text-3xl sm:text-4xl font-bold text-primary">8+</div>
-                <div className="text-sm text-muted-foreground">Custom Itineraries</div>
+                <div className="text-3xl sm:text-4xl font-bold text-primary">
+                  8+
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  Custom Itineraries
+                </div>
               </div>
               <div className="min-w-0 space-y-2">
-                <div className="text-3xl sm:text-4xl font-bold text-primary">2018</div>
+                <div className="text-3xl sm:text-4xl font-bold text-primary">
+                  2018
+                </div>
                 <div className="text-sm text-muted-foreground">Established</div>
               </div>
               <div className="min-w-0 space-y-2">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary">★★★★★</div>
-                <div className="text-sm text-muted-foreground">Guest Reviews</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary">
+                  ★★★★★
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  Guest Reviews
+                </div>
               </div>
             </div>
           </div>
@@ -117,7 +145,10 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Why Choose <span className="text-primary">Our Tours</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">We provide an immersive, educational experience that honors the past and inspires the future.</p>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              We provide an immersive, educational experience that honors the
+              past and inspires the future.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -129,7 +160,10 @@ export default function Home() {
                 <CardTitle className="text-foreground">Expert Guides</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-muted-foreground">Led by knowledgeable historians passionate about Civil Rights heritage</CardDescription>
+                <CardDescription className="text-muted-foreground">
+                  Led by knowledgeable historians passionate about Civil Rights
+                  heritage
+                </CardDescription>
               </CardContent>
             </Card>
 
@@ -138,10 +172,15 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mb-4">
                   <MapPin className="text-secondary" size={24} />
                 </div>
-                <CardTitle className="text-foreground">Authentic Sites</CardTitle>
+                <CardTitle className="text-foreground">
+                  Authentic Sites
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-muted-foreground">Visit actual locations where pivotal Civil Rights events unfolded</CardDescription>
+                <CardDescription className="text-muted-foreground">
+                  Visit actual locations where pivotal Civil Rights events
+                  unfolded
+                </CardDescription>
               </CardContent>
             </Card>
 
@@ -150,10 +189,14 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
                   <Calendar className="text-primary" size={24} />
                 </div>
-                <CardTitle className="text-foreground">Flexible Scheduling</CardTitle>
+                <CardTitle className="text-foreground">
+                  Flexible Scheduling
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-muted-foreground">Multiple tour dates available with easy online booking system</CardDescription>
+                <CardDescription className="text-muted-foreground">
+                  Multiple tour dates available with easy online booking system
+                </CardDescription>
               </CardContent>
             </Card>
 
@@ -162,10 +205,15 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mb-4">
                   <Award className="text-secondary" size={24} />
                 </div>
-                <CardTitle className="text-foreground">VIP Experience</CardTitle>
+                <CardTitle className="text-foreground">
+                  VIP Experience
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-muted-foreground">Curated accommodations and Southern cuisine throughout your journey</CardDescription>
+                <CardDescription className="text-muted-foreground">
+                  Curated accommodations and Southern cuisine throughout your
+                  journey
+                </CardDescription>
               </CardContent>
             </Card>
           </div>
@@ -177,32 +225,45 @@ export default function Home() {
         <div className="container">
           <div className="mx-auto mb-12 grid max-w-6xl gap-6 border-b border-border pb-10 md:grid-cols-[0.8fr_1.2fr] md:items-end">
             <div>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">Trusted Tour Experiences</p>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
+                Trusted Tour Experiences
+              </p>
               <h2 className="text-4xl font-bold text-foreground md:text-5xl">
                 Previous <span className="text-primary">Clients</span>
               </h2>
             </div>
             <p className="text-lg leading-8 text-muted-foreground md:text-xl">
-              Civil Rights Trail Tours creates meaningful journeys for organizations seeking history, hospitality, and thoughtful coordination delivered with respect.
+              Civil Rights Trail Tours creates meaningful journeys for
+              organizations seeking history, hospitality, and thoughtful
+              coordination delivered with respect.
             </p>
           </div>
 
           <div className="mx-auto max-w-6xl">
             <div className="grid grid-cols-1 border-l border-t border-border sm:grid-cols-2 lg:grid-cols-3">
               {previousClients.map(client => (
-                <div key={client.name} className="group min-h-48 border-b border-r border-border bg-card/50 p-6 transition-colors hover:bg-card">
+                <div
+                  key={client.name}
+                  className="group min-h-48 border-b border-r border-border bg-card/50 p-6 transition-colors hover:bg-card"
+                >
                   <div className="mb-5 flex h-11 w-11 items-center justify-center border border-primary/40 bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                     <client.icon size={22} />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground">{client.name}</h3>
-                  <p className="mt-2 max-w-sm text-sm leading-6 text-muted-foreground">{client.detail}</p>
+                  <h3 className="text-xl font-bold text-foreground">
+                    {client.name}
+                  </h3>
+                  <p className="mt-2 max-w-sm text-sm leading-6 text-muted-foreground">
+                    {client.detail}
+                  </p>
                 </div>
               ))}
             </div>
 
             <div className="mt-14">
               <div className="mb-6 flex items-center gap-4">
-                <p className="shrink-0 text-sm font-semibold uppercase tracking-widest text-primary">Organizations We Have Served</p>
+                <p className="shrink-0 text-sm font-semibold uppercase tracking-widest text-primary">
+                  Organizations We Have Served
+                </p>
                 <div className="h-px w-full bg-border" />
               </div>
 
@@ -212,7 +273,12 @@ export default function Home() {
                     key={client.name}
                     className="flex aspect-[4/3] min-w-0 items-center justify-center rounded-md border border-border bg-white p-4 shadow-sm transition-transform duration-300 hover:-translate-y-1 sm:p-6"
                   >
-                    <img src={client.src} alt={`${client.name} logo`} loading="lazy" className="h-full w-full object-contain" />
+                    <img
+                      src={client.src}
+                      alt={`${client.name} logo`}
+                      loading="lazy"
+                      className="h-full w-full object-contain"
+                    />
                     <figcaption className="sr-only">{client.name}</figcaption>
                   </figure>
                 ))}
@@ -221,7 +287,9 @@ export default function Home() {
 
             <div className="mt-12">
               <div className="mb-6 flex items-center gap-4">
-                <p className="shrink-0 text-sm font-semibold uppercase tracking-widest text-primary">Our Company Partners</p>
+                <p className="shrink-0 text-sm font-semibold uppercase tracking-widest text-primary">
+                  Our Company Partners
+                </p>
                 <div className="h-px w-full bg-border" />
               </div>
 
@@ -231,7 +299,12 @@ export default function Home() {
                     key={partner.name}
                     className="flex aspect-[4/3] min-w-0 items-center justify-center rounded-md border border-border bg-white p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1"
                   >
-                    <img src={partner.src} alt={`${partner.name} logo`} loading="lazy" className="h-full w-full object-contain" />
+                    <img
+                      src={partner.src}
+                      alt={`${partner.name} logo`}
+                      loading="lazy"
+                      className="h-full w-full object-contain"
+                    />
                     <figcaption className="sr-only">{partner.name}</figcaption>
                   </figure>
                 ))}
@@ -240,7 +313,9 @@ export default function Home() {
 
             <div className="mt-12">
               <div className="mb-6 flex items-center gap-4">
-                <p className="shrink-0 text-sm font-semibold uppercase tracking-widest text-primary">Educational Partners We Have Served</p>
+                <p className="shrink-0 text-sm font-semibold uppercase tracking-widest text-primary">
+                  Educational Partners We Have Served
+                </p>
                 <div className="h-px w-full bg-border" />
               </div>
 
@@ -250,7 +325,12 @@ export default function Home() {
                     key={school.name}
                     className="flex aspect-[4/3] min-w-0 items-center justify-center rounded-md border border-border bg-white p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1"
                   >
-                    <img src={school.src} alt={`${school.name} logo`} loading="lazy" className="h-full w-full object-contain" />
+                    <img
+                      src={school.src}
+                      alt={`${school.name} logo`}
+                      loading="lazy"
+                      className="h-full w-full object-contain"
+                    />
                     <figcaption className="sr-only">{school.name}</figcaption>
                   </figure>
                 ))}
@@ -268,10 +348,15 @@ export default function Home() {
               Ready to Begin Your <span className="text-primary">Journey</span>?
             </h2>
             <p className="text-xl text-muted-foreground">
-              Join us for a transformative experience that honors the struggle, celebrates the strength, and carries forward the legacy of the Civil Rights Movement.
+              Join us for a transformative experience that honors the struggle,
+              celebrates the strength, and carries forward the legacy of the
+              Civil Rights Movement.
             </p>
             <Link href="/contact">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-12">
+              <Button
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-12"
+              >
                 Book Your Tour Today
                 <ArrowRight className="ml-2" size={20} />
               </Button>
