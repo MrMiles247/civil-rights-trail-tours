@@ -7,16 +7,18 @@ import { Card, CardContent } from "@/components/ui/card";
 import { trpc } from "@/lib/trpc";
 
 const heroImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029344895/TCAJVVsSVBFJXRjm.jpg";
+const youtubeSlideshowUrl = "https://www.youtube.com/watch?v=NB2wCdlaf_E";
+const youtubeSlideshowEmbedUrl = "https://www.youtube.com/embed/NB2wCdlaf_E";
 const fallbackMedia = [
   { id: 1, type: "photo", title: "Tour Group Experience", description: "Guests gathering before a Civil Rights Trail journey.", location: "Civil Rights Trail", url: heroImage, thumbnailUrl: heroImage, featured: true, published: true, sortOrder: 1 },
-  { id: 2, type: "video", title: "Guest Journey Highlights", description: "Feature a short reel from recent tour groups and landmark stops.", location: "Video Feature", url: "", thumbnailUrl: heroImage, featured: true, published: true, sortOrder: 2 },
+  { id: 2, type: "video", title: "Journey on the Civil Rights Trail", description: "Travel with us through landmark cities, sacred sites, and living history while learning the stories that continue to shape our communities.", location: "Video Slideshow", url: youtubeSlideshowUrl, thumbnailUrl: heroImage, featured: true, published: true, sortOrder: 2 },
 ];
 
 export default function Gallery() {
   const { data, isLoading } = trpc.crm.media.list.useQuery({ includeUnpublished: false });
   const media = data && data.length > 0 ? data : fallbackMedia;
   const photos = media.filter(item => item.type === "photo");
-  const videos = media.filter(item => item.type === "video");
+  const videos = media.filter(item => item.type === "video").map(item => item.title === "Guest Journey Highlights" ? { ...item, title: "Journey on the Civil Rights Trail", description: "Travel with us through landmark cities, sacred sites, and living history while learning the stories that continue to shape our communities.", location: "Video Slideshow", url: youtubeSlideshowUrl } : item);
   const featured = media.find(item => item.featured)?.thumbnailUrl || heroImage;
 
   return (
@@ -46,7 +48,7 @@ export default function Gallery() {
         <section className="py-20 bg-card">
           <div className="container">
             <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"><div><p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">Videos</p><h2 className="text-3xl sm:text-4xl font-bold text-foreground">Video Library</h2></div><p className="max-w-2xl text-muted-foreground">Tour reels, testimonials, walkthroughs, and orientation videos managed from the CRM.</p></div>
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">{videos.map((video) => <Card key={video.id} className="overflow-hidden border-border bg-background"><CardContent className="p-0"><div className="relative flex aspect-video items-center justify-center overflow-hidden bg-gradient-to-br from-primary/25 via-background to-secondary/20">{video.url ? <video src={video.url} poster={video.thumbnailUrl || heroImage} controls className="h-full w-full object-cover" /> : <><div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border border-primary/40 bg-background/80 text-primary shadow-lg"><PlayCircle size={34} /></div><div className="absolute bottom-4 right-4 rounded bg-background/80 px-2 py-1 text-xs font-semibold text-foreground">Ready for video</div></>}</div><div className="space-y-3 p-6"><div className="flex items-center gap-2 text-sm font-semibold text-primary"><Film size={16} />Video Feature</div><h3 className="text-xl font-bold text-foreground">{video.title}</h3><p className="text-muted-foreground">{video.description}</p></div></CardContent></Card>)}</div>
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">{videos.map((video) => <Card key={video.id} className="overflow-hidden border-border bg-background"><CardContent className="p-0"><div className="relative flex aspect-video items-center justify-center overflow-hidden bg-gradient-to-br from-primary/25 via-background to-secondary/20">{video.url === youtubeSlideshowUrl ? <iframe className="h-full w-full" src={youtubeSlideshowEmbedUrl} title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen /> : video.url ? <video src={video.url} poster={video.thumbnailUrl || heroImage} controls className="h-full w-full object-cover" /> : <><div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border border-primary/40 bg-background/80 text-primary shadow-lg"><PlayCircle size={34} /></div><div className="absolute bottom-4 right-4 rounded bg-background/80 px-2 py-1 text-xs font-semibold text-foreground">Ready for video</div></>}</div><div className="space-y-3 p-6"><div className="flex items-center gap-2 text-sm font-semibold text-primary"><Film size={16} />Video Feature</div><h3 className="text-xl font-bold text-foreground">{video.title}</h3><p className="text-muted-foreground">{video.description}</p></div></CardContent></Card>)}</div>
           </div>
         </section>
       </main>
