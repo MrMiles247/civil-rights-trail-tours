@@ -65,6 +65,17 @@ export default function Home() {
 
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
+            <div className="flex justify-center pb-1">
+              <div className="relative isolate p-1.5 sm:p-2">
+                <div className="absolute inset-0 -rotate-2 border border-primary/70 bg-background/75 shadow-[0_0_0_8px_rgb(20_62_53_/_0.58),0_22px_55px_rgb(0_0_0_/_0.38)] backdrop-blur-sm" />
+                <img
+                  src="/brand/civil-rights-trail-tours-logo.jpeg"
+                  alt="Civil Rights Trail Tours logo - Bridging Black History and Culture"
+                  className="relative block w-28 sm:w-32 md:w-36"
+                />
+              </div>
+            </div>
+
             <div className="space-y-4">
               <h1 className="max-w-full text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
                 <span className="text-foreground">
