@@ -1,233 +1,210 @@
+import { Link } from "wouter";
+import {
+  ArrowRight,
+  CalendarClock,
+  ChefHat,
+  Landmark,
+  MapPin,
+  Mountain,
+  Music2,
+  Palmtree,
+  Sparkles,
+  TreePine,
+  Waves,
+} from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
 
-export default function Atlanta() {
+const route = ["Montego Bay", "Ocho Rios", "Blue Mountain", "Kingston"];
+
+const experiences = [
+  {
+    title: "History & Heritage",
+    description:
+      "Follow Jamaica's layered story through a guided history tour, the living legacy of a Maroon village, and the cultural grounding of a Rastafari village.",
+    icon: Landmark,
+  },
+  {
+    title: "Food & Everyday Culture",
+    description:
+      "Learn through flavor and conversation in a hands-on Jamaican cooking class that connects food, family, and place.",
+    icon: ChefHat,
+  },
+  {
+    title: "Music & Creative Legacy",
+    description:
+      "Visit the Bob Marley Museum and take part in a music lesson that brings Jamaica's global sound back to its local roots.",
+    icon: Music2,
+  },
+  {
+    title: "Land & Water",
+    description:
+      "Make time for a beach day, waterfalls, and the Blue Mountains, meeting Jamaica through its natural landscape as well as its history.",
+    icon: Mountain,
+  },
+];
+
+export default function JamaicaHeritageTrail() {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <Navigation />
-      
-      <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative h-[60vh] overflow-hidden">
-          <img
-            src="https://private-us-east-1.manuscdn.com/sessionFile/HZleZauX8yVNrUFyQKt6RU/sandbox/WXNlSPGRkfU3ja1EAWWpfd-img-1_1770958731000_na1fn_YXRsYW50YS1jaXZpbC1yaWdodHM.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSFpsZVphdVg4eVZOclVGeVFLdDZSVS9zYW5kYm94L1dYTmxTUEdSa2ZVM2phMUVBV1dwZmQtaW1nLTFfMTc3MDk1ODczMTAwMF9uYTFmbl9ZWFJzWVc1MFlTMWphWFpwYkMxeWFXZG9kSE0ucG5nP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTkyMCxoXzE5MjAvZm9ybWF0LHdlYnAvcXVhbGl0eSxxXzgwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzk4NzYxNjAwfX19XX0_&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=JVcn4otl~40YegEmK9y7ZPuUDKsHrCk-tawdHjH4RXfyFAPfXZSJhEtMlR6wqgP28MSw3Bav9qG9Y6HrxrguCFCFho049MHyr2drSipKq9rSqJdOgXWt944VhUyknP-c18smiHRayLgKZs7YA~KWodPb7FdMLssQLnJpEpIWmd85zOwhOGphMnMc6ar9ryMyZoi0NrKIASgPusN4CHVzFn5vL9IH7o9X6YC-uC34vuoIpLolDywnS9~NoIP5C8pf9NmB0MgsR3Fjd2odgxRVBTQ2PI~yuGhjV1iMH6ydSQDq5yqcankIoZeNOnA6DRH6hpRcuYan2ahHme-oOBePYg__"
-            alt="Atlanta Civil Rights Landmarks"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background flex items-center justify-center">
-            <div className="container text-center">
-              <h1 className="text-5xl md:text-7xl font-bold text-primary mb-4">Atlanta</h1>
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-                A celebration of civil rights achievements and an invitation to carry the torch forward
+
+      <main className="pt-20">
+        <section className="relative overflow-hidden border-b border-border bg-[#163b2b] text-white">
+          <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(135deg,transparent_46%,#e1b74e_46%,#e1b74e_49%,transparent_49%),linear-gradient(45deg,transparent_46%,#a23d2f_46%,#a23d2f_49%,transparent_49%)] [background-size:94px_94px]" />
+          <div className="pointer-events-none absolute -right-12 top-10 h-72 w-72 rotate-45 border-[26px] border-[#e1b74e]/25" />
+          <div className="container relative py-16 md:py-24">
+            <div className="max-w-4xl space-y-7">
+              <div className="inline-flex items-center gap-2 border border-[#e1b74e]/70 bg-black/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-[#f5dd8b]">
+                <CalendarClock size={16} />
+                Coming Soon
+              </div>
+              <div className="space-y-4">
+                <p className="text-sm font-semibold uppercase tracking-widest text-[#f5dd8b]">
+                  Civil Rights Trail Tours International
+                </p>
+                <h1 className="max-w-4xl text-4xl font-bold leading-tight sm:text-5xl md:text-7xl">
+                  7-Day Jamaica
+                  <span className="block text-[#e1b74e]">Heritage Trail</span>
+                </h1>
+                <p className="max-w-3xl text-lg leading-8 text-white/85 md:text-xl">
+                  An upcoming cultural journey for travelers who want to learn more about Jamaica's history, creativity, and enduring influence, including members of the international Jamaican diaspora.
+                </p>
+              </div>
+
+              <div className="grid max-w-3xl grid-cols-2 gap-px border border-white/20 bg-white/20 md:grid-cols-4">
+                {[
+                  ["Duration", "7 Days"],
+                  ["Country", "Jamaica"],
+                  ["Focus", "Heritage & Culture"],
+                  ["Status", "Coming Soon"],
+                ].map(([label, value]) => (
+                  <div key={label} className="bg-[#163b2b] p-4">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-white/60">
+                      {label}
+                    </p>
+                    <p className="mt-1 font-bold text-white">{value}</p>
+                  </div>
+                ))}
+              </div>
+
+              <Link href="/contact">
+                <Button size="lg" className="bg-[#e1b74e] px-8 text-[#153a2a] hover:bg-[#f5dd8b]">
+                  Join the Interest List
+                  <ArrowRight className="ml-2" size={18} />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-card py-16">
+          <div className="container">
+            <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+              <div>
+                <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
+                  A Diaspora Homecoming
+                </p>
+                <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+                  Meet Jamaica through the stories that shaped it.
+                </h2>
+                <div className="space-y-4 text-lg leading-8 text-muted-foreground">
+                  <p>
+                    CRTT is curating a seven-day heritage experience for people who want a deeper relationship with Jamaica. The journey is designed to move beyond the familiar vacation view and into the people, traditions, landscapes, and cultural expressions that continue to shape the island.
+                  </p>
+                  <p>
+                    The itinerary is in development. Travel dates, pricing, lodging, and final inclusions will be announced when the tour is ready to open.
+                  </p>
+                </div>
+              </div>
+              <aside className="border-l-4 border-[#e1b74e] bg-background p-6">
+                <Sparkles className="mb-5 text-[#b66038]" size={32} />
+                <p className="text-xl font-semibold leading-8">
+                  This is a journey of connection: to the island's past, its living culture, and the global community shaped by Jamaica.
+                </p>
+              </aside>
+            </div>
+
+            <div className="mx-auto mt-12 max-w-6xl border-y border-border py-7">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                Planned Route
+              </p>
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                {route.map((city, index) => (
+                  <div key={city} className="flex items-center gap-2 sm:gap-3">
+                    <span className="font-semibold text-foreground">{city}</span>
+                    {index < route.length - 1 && <ArrowRight className="text-primary" size={16} />}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-background py-20">
+          <div className="container">
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
+                Planned Experience
+              </p>
+              <h2 className="text-4xl font-bold">History You Can Feel</h2>
+              <p className="mt-4 text-lg leading-8 text-muted-foreground">
+                A well-rounded agenda that connects heritage, food, music, community, and the landscapes that make Jamaica unforgettable.
               </p>
             </div>
-          </div>
-        </section>
 
-        {/* Introduction */}
-        <section className="py-16 bg-card">
-          <div className="container max-w-4xl">
-            <p className="text-lg leading-relaxed text-card-foreground">
-              Atlanta caps your tour with a celebration of civil rights achievements and an invitation to carry its torch forward. As Dr. Martin Luther King Jr.'s birthplace and home, Atlanta holds a special place in civil rights history and continues to be a center for human rights work today. The city represents both the culmination of past struggles and the ongoing work of building a more just future.
-            </p>
-          </div>
-        </section>
-
-        {/* Itinerary Locations */}
-        <section className="py-16">
-          <div className="container max-w-6xl space-y-16">
-            <h2 className="text-4xl font-bold text-center text-primary mb-12">Tour Itinerary</h2>
-
-            {/* Martin Luther King Jr. Birth Home */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="space-y-4">
-                <h3 className="text-3xl font-bold text-primary">Martin Luther King Jr. Birth Home</h3>
-                <h4 className="text-xl text-accent font-semibold">Where a Leader Was Born</h4>
-                <p className="text-lg leading-relaxed">
-                  The modest Queen Anne-style house at 501 Auburn Avenue is where Martin Luther King Jr. was born on January 15, 1929, and where he spent the first twelve years of his life. The home, preserved as it appeared during King's childhood, offers an intimate glimpse into the formative years of the man who would become the most prominent leader of the Civil Rights Movement.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  Tour participants will walk through the rooms where young Martin played, studied, and learned the values of faith, education, and social justice from his parents, Reverend Martin Luther King Sr. and Alberta Williams King. The home's location in the Sweet Auburn neighborhood, once the center of Black business and culture in Atlanta, provides context for understanding the community that shaped Dr. King's worldview and commitment to equality.
-                </p>
-              </div>
-              <div className="bg-card p-6 rounded-lg shadow-lg">
-                <h4 className="text-xl font-semibold text-card-foreground mb-4">The King Family Legacy</h4>
-                <ul className="space-y-2 text-card-foreground">
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Dr. King lived here from 1929-1941</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>His father was pastor of Ebenezer Baptist Church</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>His mother was a church organist and choir director</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Restored to 1930s appearance by the National Park Service</span>
-                  </li>
-                </ul>
-              </div>
+            <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-2">
+              {experiences.map(({ title, description, icon: Icon }) => (
+                <article key={title} className="border border-border bg-card p-7 transition-colors hover:border-primary">
+                  <Icon className="mb-6 text-primary" size={28} />
+                  <h3 className="text-2xl font-bold">{title}</h3>
+                  <p className="mt-3 leading-7 text-muted-foreground">{description}</p>
+                </article>
+              ))}
             </div>
 
-            {/* Ebenezer Baptist Church */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="bg-card p-6 rounded-lg shadow-lg order-2 md:order-1">
-                <h4 className="text-xl font-semibold text-card-foreground mb-4">Church's Historic Role</h4>
-                <ul className="space-y-2 text-card-foreground">
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Dr. King baptized here as a child</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Ordained as a minister here in 1947</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Served as co-pastor with his father (1960-1968)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Site of his funeral service in 1968</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="space-y-4 order-1 md:order-2">
-                <h3 className="text-3xl font-bold text-primary">Ebenezer Baptist Church</h3>
-                <h4 className="text-xl text-accent font-semibold">The King Family's Spiritual Home</h4>
-                <p className="text-lg leading-relaxed">
-                  Ebenezer Baptist Church, founded in 1886, was the spiritual home of the King family for three generations. Dr. King's grandfather, Reverend A.D. Williams, served as pastor from 1894 to 1931, followed by Martin Luther King Sr. from 1931 to 1975. Martin Luther King Jr. was baptized, ordained, and served as co-pastor at Ebenezer, and his funeral was held here after his assassination.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  The historic sanctuary, preserved as part of the Martin Luther King Jr. National Historical Park, allows visitors to sit in the pews where Dr. King preached and where his family worshipped. Participants will hear recordings of Dr. King's sermons and learn about the church's role as a center of civil rights organizing and community activism. The church continues to be an active congregation in a new building next door, carrying forward the King family's legacy of faith and social justice.
-                </p>
-              </div>
-            </div>
-
-            {/* The King Center */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="space-y-4">
-                <h3 className="text-3xl font-bold text-primary">The Martin Luther King Jr. Center for Nonviolent Social Change</h3>
-                <h4 className="text-xl text-accent font-semibold">Honoring the Dream</h4>
-                <p className="text-lg leading-relaxed">
-                  The King Center, established by Coretta Scott King in 1968, serves as the official living memorial dedicated to the advancement of Dr. King's legacy of nonviolence. The center houses Dr. King's tomb, which sits in a reflecting pool alongside the eternal flame, creating a powerful and contemplative memorial space. Coretta Scott King is also interred here, alongside her husband.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  The center features exhibits on Dr. King's life and philosophy, including his personal papers, photographs, and artifacts from the Civil Rights Movement. The Freedom Hall complex includes a multimedia exhibition on Gandhi's influence on King's philosophy of nonviolence. Tour participants will pay their respects at the crypt, walk through the reflecting pool area, and explore exhibits that connect Dr. King's work to contemporary social justice movements around the world.
-                </p>
-              </div>
-              <div className="bg-card p-6 rounded-lg shadow-lg">
-                <h4 className="text-xl font-semibold text-card-foreground mb-4">The King Center's Mission</h4>
-                <ul className="space-y-2 text-card-foreground">
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Preserve and advance Dr. King's legacy</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Educate on nonviolent social change</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Train activists in nonviolent philosophy</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Connect past struggles to present movements</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Center for Civil and Human Rights */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="bg-card p-6 rounded-lg shadow-lg order-2 md:order-1">
-                <h4 className="text-xl font-semibold text-card-foreground mb-4">Museum Highlights</h4>
-                <ul className="space-y-2 text-card-foreground">
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Morehouse College Student Nonviolent Coordinating Committee papers</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Interactive lunch counter sit-in experience</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Global human rights gallery</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Contemporary social justice connections</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="space-y-4 order-1 md:order-2">
-                <h3 className="text-3xl font-bold text-primary">Center for Civil and Human Rights</h3>
-                <h4 className="text-xl text-accent font-semibold">Connecting Past to Present</h4>
-                <p className="text-lg leading-relaxed">
-                  The Center for Civil and Human Rights, opened in 2014, is a modern museum that connects the American Civil Rights Movement to contemporary human rights struggles around the world. The center houses the personal papers of Dr. Martin Luther King Jr. and features powerful, immersive exhibits that allow visitors to experience key moments of the movement.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  One of the most impactful exhibits is an interactive lunch counter sit-in simulation, where participants experience the verbal and physical abuse that peaceful protesters endured. The museum also features a global human rights gallery that examines contemporary issues such as LGBTQ+ rights, women's rights, and freedom of expression. Tour participants will leave with a deeper understanding of how the principles and tactics of the Civil Rights Movement continue to inspire activists fighting for justice today.
-                </p>
-              </div>
-            </div>
-
-            {/* Sweet Auburn Historic District */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="space-y-4">
-                <h3 className="text-3xl font-bold text-primary">Sweet Auburn Historic District</h3>
-                <h4 className="text-xl text-accent font-semibold">The Richest Negro Street in the World</h4>
-                <p className="text-lg leading-relaxed">
-                  Auburn Avenue, known as "Sweet Auburn," was once called "the richest Negro street in the world" by Fortune magazine. This thriving African American business and cultural district was home to Black-owned banks, insurance companies, newspapers, restaurants, and entertainment venues during the era of segregation. It represented Black economic empowerment and self-sufficiency in the face of systemic racism.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  Walking through Sweet Auburn today, participants will see historic buildings that housed important Black institutions, learn about the entrepreneurs who built this community, and understand how economic power supported the Civil Rights Movement. The district includes the historic Royal Peacock Club, where legendary musicians performed, and the Atlanta Daily World building, home to one of the oldest Black newspapers in America. Sweet Auburn represents the resilience, creativity, and determination of Black Atlanta.
-                </p>
-              </div>
-              <div className="bg-card p-6 rounded-lg shadow-lg">
-                <h4 className="text-xl font-semibold text-card-foreground mb-4">Sweet Auburn Legacy</h4>
-                <ul className="space-y-2 text-card-foreground">
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Center of Black business and culture</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Home to Black-owned banks and insurance companies</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Birthplace of civil rights leaders</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Symbol of Black economic empowerment</span>
-                  </li>
-                </ul>
-              </div>
+            <div className="mx-auto mt-10 grid max-w-6xl gap-4 border-y border-border py-8 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                ["History tour", MapPin],
+                ["Maroon village", TreePine],
+                ["Rastafari village", Sparkles],
+                ["Bob Marley Museum", Music2],
+                ["Jamaican cooking class", ChefHat],
+                ["Music lesson", Music2],
+                ["Beach day", Palmtree],
+                ["Waterfalls", Waves],
+              ].map(([label, Icon]) => {
+                const ExperienceIcon = Icon as typeof MapPin;
+                return (
+                  <div key={label as string} className="flex items-center gap-3 text-sm font-semibold">
+                    <ExperienceIcon className="shrink-0 text-[#b66038]" size={17} />
+                    {label as string}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        {/* Call to Action */}
-        <section className="py-16 bg-accent text-accent-foreground">
-          <div className="container text-center max-w-3xl">
-            <h2 className="text-3xl font-bold mb-6">Complete Your Journey in Atlanta</h2>
-            <p className="text-lg mb-8">
-              Honor Dr. King's legacy and discover how Atlanta continues to lead the fight for civil and human rights. End your tour with inspiration to carry the torch of justice forward.
-            </p>
-            <a
-              href="/contact"
-              className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-            >
-              Book Your Tour
-            </a>
+        <section className="border-y border-border bg-card py-20">
+          <div className="container">
+            <div className="mx-auto max-w-4xl text-center">
+              <Palmtree className="mx-auto mb-5 text-primary" size={36} />
+              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
+                Coming Soon
+              </p>
+              <h2 className="text-4xl font-bold">Be first to hear when Jamaica calls.</h2>
+              <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">
+                Join the interest list for launch details, travel dates, and the final Jamaica Heritage Trail itinerary from Civil Rights Trail Tours.
+              </p>
+              <Link href="/contact">
+                <Button size="lg" variant="outline" className="mt-8 border-primary px-8 text-primary hover:bg-primary hover:text-primary-foreground">
+                  Get Tour Updates
+                  <ArrowRight className="ml-2" size={18} />
+                </Button>
+              </Link>
+            </div>
           </div>
         </section>
       </main>
