@@ -1,233 +1,328 @@
+import { Link } from "wouter";
+import {
+  ArrowRight,
+  Bus,
+  Check,
+  Hotel,
+  Landmark,
+  MapPin,
+  Music2,
+  Plane,
+  ShipWheel,
+  Users,
+  Utensils,
+  X,
+} from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
 
-export default function Montgomery() {
+const route = ["Nashville", "Memphis", "Clarksdale", "Jackson", "New Orleans"];
+
+const days = [
+  {
+    day: "01",
+    city: "Nashville, TN",
+    title: "Arrival in Music City",
+    description:
+      "Welcome to Nashville. Check into your hotel and join fellow travelers for a welcome dinner as we set the stage for a week tracing music history through the American South.",
+    stops: ["Hotel Check-in", "Welcome Dinner"],
+  },
+  {
+    day: "02",
+    city: "Nashville, TN",
+    title: "Sit-Ins & Soul",
+    description:
+      "Begin at the Woolworth's Building on 5th Avenue, site of the historic 1960 lunch counter sit-ins that helped launch a movement. Spend the afternoon at the National Museum of African American Music, tracing genres born from Black artistry, then explore Broadway in the evening.",
+    stops: [
+      "Woolworth's Sit-In Site",
+      "National Museum of African American Music",
+      "Explore Broadway",
+    ],
+  },
+  {
+    day: "03",
+    city: "Memphis, TN",
+    title: "Soul, Stax & Sacred Ground",
+    description:
+      "Travel to Memphis and step into the world of the Queen of Rock 'n' Roll at the Tina Turner Home and Museum. Continue to Stax Records, the legendary soul label that shaped a sound felt worldwide, then pay respects at the National Civil Rights Museum before an evening exploring Beale Street.",
+    stops: [
+      "Tina Turner Home & Museum",
+      "Stax Records",
+      "National Civil Rights Museum",
+      "Explore Beale Street",
+    ],
+  },
+  {
+    day: "04",
+    city: "Clarksdale, MS",
+    title: "Where the Blues Was Born",
+    description:
+      "Descend into the Mississippi Delta, birthplace of the blues. Visit Ground Zero Blues Club and the Delta Blues Museum, tracing the sound from cotton fields to concert halls, then close the day with dinner at The Iron Horse.",
+    stops: ["Ground Zero Blues Club", "Delta Blues Museum", "Dinner at The Iron Horse"],
+  },
+  {
+    day: "05",
+    city: "Jackson, MS",
+    title: "Movement & Melody",
+    description:
+      "Confront history at the Mississippi Civil Rights Museum before visiting the home of Medgar Evers, a defining figure of the movement. Round out the day watching the Jackson State University marching band rehearse, a living tradition of Black musical excellence.",
+    stops: [
+      "Mississippi Civil Rights Museum",
+      "Medgar Evers Home",
+      "Jackson State University Band Practice",
+    ],
+  },
+  {
+    day: "06",
+    city: "New Orleans, LA",
+    title: "Arrival & Remembrance",
+    description:
+      "Arrive in New Orleans by way of the Whitney Plantation, a sobering and essential stop dedicated to telling the stories of the enslaved. In the evening, enjoy dinner in the historic Garden District before experiencing the energy of Bourbon Street.",
+    stops: ["Whitney Plantation", "Garden District Dinner", "Explore Bourbon Street"],
+  },
+  {
+    day: "07",
+    city: "New Orleans, LA",
+    title: "Second Line Send-Off",
+    description:
+      "Spend your final day on a guided city tour of New Orleans, followed by an intimate performance at Preservation Hall, home of authentic New Orleans jazz. Celebrate the journey with a farewell dinner cruise on the Mississippi River.",
+    stops: ["New Orleans City Tour", "Preservation Hall", "Farewell Dinner Cruise"],
+  },
+];
+
+const destinations = [
+  "Woolworth's Sit-In Site",
+  "National Museum of African American Music",
+  "Tina Turner Home & Museum",
+  "Stax Records",
+  "National Civil Rights Museum, Memphis",
+  "Ground Zero Blues Club",
+  "Delta Blues Museum",
+  "Mississippi Civil Rights Museum",
+  "Medgar Evers Home",
+  "Jackson State University",
+  "Whitney Plantation",
+  "Preservation Hall, New Orleans",
+];
+
+const included = [
+  "6 nights in 3-4 star hotels",
+  "7 breakfasts, 3 lunches, and 4 dinners",
+  "Luxury motorcoach with air conditioning and WiFi throughout",
+  "All ground transportation",
+  "Entry to all 12 featured museums and sites",
+  "Professional tour director throughout",
+  "Live music experiences on Beale Street and at Preservation Hall",
+  "Farewell dinner cruise",
+];
+
+const notIncluded = [
+  "Round-trip airfare",
+  "Personal travel insurance, strongly recommended",
+  "Meals not listed in the itinerary",
+  "Personal shopping and souvenirs",
+  "Gratuities for the tour director and drivers",
+];
+
+export default function BlackAmericanMusicHistoryTour() {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <Navigation />
-      
-      <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative h-[60vh] overflow-hidden">
+
+      <main className="pt-20">
+        <section className="relative min-h-[74vh] overflow-hidden border-b border-border">
           <img
-            src="https://private-us-east-1.manuscdn.com/sessionFile/HZleZauX8yVNrUFyQKt6RU/sandbox/wbcKLCqGs31IHmAsgdmrVv-img-4_1770958673000_na1fn_bW9udGdvbWVyeS1jaXZpbC1yaWdodHM.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSFpsZVphdVg4eVZOclVGeVFLdDZSVS9zYW5kYm94L3diY0tMQ3FHczMxSUhtQXNnZG1yVnYtaW1nLTRfMTc3MDk1ODY3MzAwMF9uYTFmbl9iVzl1ZEdkdmJXVnllUzFqYVhacGJDMXlhV2RvZEhNLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=g8bzOsldqOK78O2m3PN03Xf5FS-Kb-BYJ0NyhFbwlCRnQWLf2ZHNNnbB3qfkeEiWnGxyGO3dp2WSqVsPW-2J7s6UivJhuYKdGIqtEsItksUgVlz9lmuz2NQflLQ9qEByZ0DfrQ3MKFm0Mp-WYWpQuV8VutWLtIZ7MCY8TinU3eN~KjCBrKVwdlbavrOKin2xhehwrzV9cke4sF86zrIcnO8cWOMLEoERdANCfV4nY5ochZpQ0BjGpFEBINATN9j3CbiLu5yP4a2BmAiBmRJgalqG7KDuemZpf8Kt5bNngw8pC5M70TRpKgAQ9TyeeI--hgMr1tH811W7JjPViIgY0w__"
-            alt="Montgomery Civil Rights Landmarks"
-            className="w-full h-full object-cover"
+            src="/gallery/origins-music/stax-soulsville-group.jpg"
+            alt="Travelers visiting Stax Museum during a Civil Rights Trail Tours music journey"
+            className="absolute inset-0 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background flex items-center justify-center">
-            <div className="container text-center">
-              <h1 className="text-5xl md:text-7xl font-bold text-primary mb-4">Montgomery</h1>
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-                Birthplace and culmination point of the Civil Rights Movement
+          <div className="absolute inset-0 bg-background/80" />
+          <div className="container relative flex min-h-[74vh] items-end py-14 md:items-center md:py-20">
+            <div className="max-w-4xl space-y-6">
+              <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+                Guided Music & Culture Journey
               </p>
+              <h1 className="text-4xl font-bold leading-tight sm:text-5xl md:text-7xl">
+                7-Day Black American
+                <span className="block text-primary">Music History Tour</span>
+              </h1>
+              <p className="max-w-3xl text-lg leading-8 text-foreground/90 md:text-xl">
+                Trace the genres, places, and people who built America's sound,
+                from spirituals and blues to soul and jazz, across the American South.
+              </p>
+
+              <div className="grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-4">
+                {[
+                  ["Duration", "7 Days"],
+                  ["Start", "Nashville, TN"],
+                  ["End", "New Orleans, LA"],
+                  ["From", "$1,950 / person"],
+                ].map(([label, value]) => (
+                  <div key={label} className="bg-card p-4">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                      {label}
+                    </p>
+                    <p className="mt-1 font-bold text-foreground">{value}</p>
+                  </div>
+                ))}
+              </div>
+
+              <Link href="/contact">
+                <Button size="lg" className="bg-primary px-8 text-primary-foreground hover:bg-primary/90">
+                  Reserve Your Place
+                  <ArrowRight className="ml-2" size={18} />
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* Introduction */}
-        <section className="py-16 bg-card">
-          <div className="container max-w-4xl">
-            <p className="text-lg leading-relaxed text-card-foreground">
-              In Montgomery, engage with the stirring narratives of the Equal Justice Initiative, which will challenge, educate, and inspire. Montgomery's pivotal role as both the birthplace of the modern Civil Rights Movement with the Bus Boycott and the culmination point of the Selma to Montgomery march makes it an essential stop on any civil rights journey.
-            </p>
-          </div>
-        </section>
-
-        {/* Itinerary Locations */}
-        <section className="py-16">
-          <div className="container max-w-6xl space-y-16">
-            <h2 className="text-4xl font-bold text-center text-primary mb-12">Tour Itinerary</h2>
-
-            {/* Rosa Parks Museum */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="space-y-4">
-                <h3 className="text-3xl font-bold text-primary">Rosa Parks Museum</h3>
-                <h4 className="text-xl text-accent font-semibold">The Spark That Ignited a Movement</h4>
-                <p className="text-lg leading-relaxed">
-                  On December 1, 1955, Rosa Parks refused to give up her seat to a white passenger on a Montgomery city bus, an act of defiance that sparked the Montgomery Bus Boycott and launched the modern Civil Rights Movement. The Rosa Parks Museum, located at the site where Parks was arrested, tells the story of her courageous stand and the 381-day boycott that followed.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  Participants will experience interactive exhibits including a restored 1950s bus, a recreation of the moment of Parks' arrest, and comprehensive displays on the Montgomery Bus Boycott. The museum explores how this grassroots movement, led by Dr. Martin Luther King Jr. and the Montgomery Improvement Association, successfully desegregated the city's bus system and demonstrated the power of nonviolent resistance.
-                </p>
+        <section className="bg-card py-16">
+          <div className="container">
+            <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+              <div>
+                <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">About This Journey</p>
+                <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+                  Hear the roots. Follow the rhythm. Know the story.
+                </h2>
+                <div className="space-y-4 text-lg leading-8 text-muted-foreground">
+                  <p>
+                    Travel through the American South and trace the roots of the music that shaped the nation. This immersive seven-day experience explores spirituals, blues, soul, and jazz born from Black communities' struggle, faith, joy, and imagination.
+                  </p>
+                  <p>
+                    Along the way, the journey connects music to the Civil Rights Movement itself, visiting places where courage rang out alongside the sound, from lunch counter sit-ins to the halls where soul records were cut.
+                  </p>
+                </div>
               </div>
-              <div className="bg-card p-6 rounded-lg shadow-lg">
-                <h4 className="text-xl font-semibold text-card-foreground mb-4">The Montgomery Bus Boycott</h4>
-                <ul className="space-y-2 text-card-foreground">
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Lasted 381 days (Dec 1955 - Dec 1956)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>40,000 Black riders boycotted city buses</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Organized carpools and walking campaigns</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Ended with Supreme Court ruling buses must desegregate</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Dexter Avenue King Memorial Baptist Church */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="bg-card p-6 rounded-lg shadow-lg order-2 md:order-1">
-                <h4 className="text-xl font-semibold text-card-foreground mb-4">Dr. King's Ministry</h4>
-                <ul className="space-y-2 text-card-foreground">
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Dr. King served as pastor from 1954-1960</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Headquarters for Montgomery Bus Boycott</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Site of mass meetings and strategy sessions</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Where Dr. King developed his philosophy of nonviolence</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="space-y-4 order-1 md:order-2">
-                <h3 className="text-3xl font-bold text-primary">Dexter Avenue King Memorial Baptist Church</h3>
-                <h4 className="text-xl text-accent font-semibold">Dr. King's Pulpit</h4>
-                <p className="text-lg leading-relaxed">
-                  Dexter Avenue King Memorial Baptist Church, located just steps from the Alabama State Capitol, was Dr. Martin Luther King Jr.'s first pastorate. It was from this church that the 26-year-old minister helped organize and lead the Montgomery Bus Boycott, establishing himself as a national leader of the Civil Rights Movement.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  The church served as the headquarters for the Montgomery Improvement Association and hosted countless strategy meetings. Tour participants will visit the sanctuary where Dr. King preached, see the basement where boycott meetings were held, and learn about the development of his philosophy of nonviolent resistance. The church's proximity to the state capitol symbolizes the movement's challenge to political power.
+              <div className="border-l-4 border-secondary bg-background p-6">
+                <Music2 className="mb-5 text-secondary" size={32} />
+                <p className="text-xl font-semibold leading-8">
+                  From Nashville to New Orleans, learn how Black musical genius transformed local traditions into America's enduring soundtrack.
                 </p>
               </div>
             </div>
 
-            {/* National Memorial for Peace and Justice */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="space-y-4">
-                <h3 className="text-3xl font-bold text-primary">National Memorial for Peace and Justice</h3>
-                <h4 className="text-xl text-accent font-semibold">Confronting Racial Terror</h4>
-                <p className="text-lg leading-relaxed">
-                  The National Memorial for Peace and Justice, opened in 2018 by the Equal Justice Initiative, is the nation's first memorial dedicated to the legacy of enslaved Black people, people terrorized by lynching, African Americans humiliated by racial segregation and Jim Crow, and people of color burdened with contemporary presumptions of guilt and police violence.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  The memorial features over 800 hanging steel monuments, one for each county in the United States where a racial terror lynching took place. As visitors walk through the memorial, the ground slowly descends, and the monuments begin to hang overhead, creating a powerful and haunting experience. Participants will confront this difficult history and understand its connection to contemporary issues of racial injustice.
-                </p>
-              </div>
-              <div className="bg-card p-6 rounded-lg shadow-lg">
-                <h4 className="text-xl font-semibold text-card-foreground mb-4">Memorial Impact</h4>
-                <ul className="space-y-2 text-card-foreground">
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Documents over 4,400 racial terror lynchings</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Represents 800+ counties across America</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Connects historical terror to present injustice</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Promotes truth-telling and reconciliation</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Legacy Museum */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="bg-card p-6 rounded-lg shadow-lg order-2 md:order-1">
-                <h4 className="text-xl font-semibold text-card-foreground mb-4">Museum Themes</h4>
-                <ul className="space-y-2 text-card-foreground">
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Enslavement and the domestic slave trade</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Racial terror and lynching</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Segregation and racial hierarchy</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Mass incarceration and contemporary injustice</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="space-y-4 order-1 md:order-2">
-                <h3 className="text-3xl font-bold text-primary">Legacy Museum</h3>
-                <h4 className="text-xl text-accent font-semibold">From Enslavement to Mass Incarceration</h4>
-                <p className="text-lg leading-relaxed">
-                  The Legacy Museum, also created by the Equal Justice Initiative, is located on a site in Montgomery where enslaved people were once warehoused. The museum uses innovative technology, including holograms, video walls, and interactive exhibits, to explore the legacy of slavery and its connection to contemporary issues of racial injustice and mass incarceration.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  Participants will encounter first-person narratives from enslaved people, witness the evolution of racial terror through lynching, experience the humiliation of Jim Crow segregation, and understand how these historical injustices connect to today's criminal justice system. The museum challenges visitors to confront uncomfortable truths and consider their role in creating a more just society.
-                </p>
-              </div>
-            </div>
-
-            {/* Alabama State Capitol */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="space-y-4">
-                <h3 className="text-3xl font-bold text-primary">Alabama State Capitol</h3>
-                <h4 className="text-xl text-accent font-semibold">Where the March Concluded</h4>
-                <p className="text-lg leading-relaxed">
-                  The Alabama State Capitol was the destination and symbolic goal of the Selma to Montgomery marches. On March 25, 1965, after five days of walking 54 miles, 25,000 marchers gathered on the capitol steps where Dr. Martin Luther King Jr. delivered his powerful "How Long, Not Long" speech, declaring that the arc of the moral universe bends toward justice.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  The capitol also served as the first Confederate capitol and the site where Jefferson Davis took the oath of office as president of the Confederacy. This duality—as both a symbol of the Confederacy and the destination of the voting rights march—makes it a powerful site for understanding the long struggle for racial justice in America. Tour participants will stand on the steps where Dr. King spoke and reflect on the journey from Selma.
-                </p>
-              </div>
-              <div className="bg-card p-6 rounded-lg shadow-lg">
-                <h4 className="text-xl font-semibold text-card-foreground mb-4">Historical Significance</h4>
-                <ul className="space-y-2 text-card-foreground">
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Destination of Selma to Montgomery march</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Site of Dr. King's "How Long, Not Long" speech</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Former Confederate capitol building</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">•</span>
-                    <span>Symbol of political power and resistance</span>
-                  </li>
-                </ul>
+            <div className="mx-auto mt-12 max-w-6xl border-y border-border py-7">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Your Route</p>
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                {route.map((city, index) => (
+                  <div key={city} className="flex items-center gap-2 sm:gap-3">
+                    <span className="font-semibold text-foreground">{city}</span>
+                    {index < route.length - 1 && <ArrowRight className="text-primary" size={16} />}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Call to Action */}
-        <section className="py-16 bg-accent text-accent-foreground">
-          <div className="container text-center max-w-3xl">
-            <h2 className="text-3xl font-bold mb-6">Experience Montgomery's Transformative History</h2>
-            <p className="text-lg mb-8">
-              From the birthplace of the Bus Boycott to the powerful memorials of the Equal Justice Initiative, Montgomery offers profound insights into America's ongoing journey toward justice.
-            </p>
-            <a
-              href="/contact"
-              className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-            >
-              Book Your Tour
-            </a>
+        <section className="bg-background py-20">
+          <div className="container">
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">Day by Day</p>
+              <h2 className="text-4xl font-bold">Your 7-Day Itinerary</h2>
+            </div>
+            <div className="mx-auto max-w-5xl space-y-4">
+              {days.map(item => (
+                <article key={item.day} className="overflow-hidden rounded-md border border-border bg-card">
+                  <div className="grid md:grid-cols-[120px_1fr]">
+                    <div className="flex items-center justify-between bg-secondary px-5 py-4 text-secondary-foreground md:flex-col md:justify-center md:py-6">
+                      <span className="text-xs font-semibold uppercase tracking-widest">Day</span>
+                      <span className="text-3xl font-bold">{item.day}</span>
+                    </div>
+                    <div className="border-b border-border px-5 py-5 md:px-7">
+                      <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-primary">{item.city}</p>
+                      <h3 className="text-2xl font-bold">{item.title}</h3>
+                    </div>
+                  </div>
+                  <div className="px-5 py-5 md:ml-[120px] md:px-7">
+                    <p className="mb-5 leading-7 text-muted-foreground">{item.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {item.stops.map(stop => (
+                        <span key={stop} className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm text-primary">
+                          {stop}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-y border-border bg-card py-20">
+          <div className="container">
+            <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.75fr_1.25fr]">
+              <div>
+                <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">12 Featured Sites</p>
+                <h2 className="text-4xl font-bold">The Soundtrack of the South</h2>
+                <p className="mt-5 leading-7 text-muted-foreground">
+                  Sacred spaces, museums, historic venues, and neighborhoods that reveal the sound, spirit, and stories behind Black American music.
+                </p>
+              </div>
+              <ol className="grid gap-x-8 gap-y-4 sm:grid-cols-2">
+                {destinations.map((destination, index) => (
+                  <li key={destination} className="flex items-start gap-3 border-b border-border pb-3">
+                    <span className="font-bold text-primary">{String(index + 1).padStart(2, "0")}</span>
+                    <span className="font-medium">{destination}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-background py-20">
+          <div className="container">
+            <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2">
+              <div>
+                <h2 className="mb-7 flex items-center gap-3 text-3xl font-bold"><Check className="text-primary" />Included in Your Package</h2>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {included.map((item, index) => {
+                    const Icon = [Hotel, Utensils, Bus, MapPin, Landmark, Users, Music2, ShipWheel][index];
+                    return <div key={item} className="flex gap-3 border-b border-border pb-4"><Icon className="mt-1 shrink-0 text-primary" size={18} /><span className="text-sm leading-6 text-muted-foreground">{item}</span></div>;
+                  })}
+                </div>
+              </div>
+              <div>
+                <h2 className="mb-7 flex items-center gap-3 text-3xl font-bold"><X className="text-secondary" />Not Included</h2>
+                <div className="space-y-4">
+                  {notIncluded.map((item, index) => (
+                    <div key={item} className="flex gap-3 border-b border-border pb-4">
+                      {index === 0 ? <Plane className="mt-1 shrink-0 text-secondary" size={18} /> : <X className="mt-1 shrink-0 text-secondary" size={18} />}
+                      <span className="text-sm leading-6 text-muted-foreground">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-y border-border bg-card py-20">
+          <div className="container">
+            <div className="mx-auto max-w-6xl">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">Pricing</p>
+              <h2 className="text-4xl font-bold">Choose Your Stay</h2>
+              <p className="mt-4 max-w-2xl text-muted-foreground">All ground transportation and museum admissions are included. Airfare is not included.</p>
+              <div className="mt-10 grid gap-5 md:grid-cols-2">
+                <article className="relative overflow-hidden rounded-md border-2 border-primary bg-background p-8">
+                  <span className="absolute right-0 top-0 bg-primary px-4 py-2 text-xs font-bold uppercase tracking-widest text-primary-foreground">Best Value</span>
+                  <p className="text-sm font-semibold uppercase tracking-widest text-primary">Double Occupancy</p>
+                  <p className="mt-5 text-5xl font-bold">$1,950</p>
+                  <p className="mt-2 text-muted-foreground">Per person, shared room</p>
+                  <p className="mt-7 border-t border-border pt-5 font-semibold text-primary">Deposit and balance schedule available at booking</p>
+                </article>
+                <article className="rounded-md border border-border bg-background p-8">
+                  <p className="text-sm font-semibold uppercase tracking-widest text-primary">Single Occupancy</p>
+                  <p className="mt-5 text-4xl font-bold">Contact Us</p>
+                  <p className="mt-2 text-muted-foreground">Private-room pricing available on request</p>
+                  <Link href="/contact"><Button variant="outline" className="mt-7 border-primary text-primary hover:bg-primary hover:text-primary-foreground">Request Pricing <ArrowRight className="ml-2" size={16} /></Button></Link>
+                </article>
+              </div>
+            </div>
           </div>
         </section>
       </main>
