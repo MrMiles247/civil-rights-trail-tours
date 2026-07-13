@@ -25,18 +25,21 @@ describe("City Itinerary Pages", () => {
       name: "7-Day Black American Music History Tour",
       slug: "black-american-music-history-tour",
     },
-    { name: "Tuskegee", slug: "tuskegee" },
+    {
+      name: "7-Day Mayan Riviera Expat Tour",
+      slug: "mayan-riviera-expat-tour",
+    },
     { name: "Atlanta", slug: "atlanta" },
   ];
 
-  it("should have three signature itineraries and three city pages defined", () => {
+  it("should have four signature itineraries and two city pages defined", () => {
     expect(cities).toHaveLength(6);
     expect(cities.map(c => c.name)).toEqual([
       "6-Day RTJ Golf Trail Tour",
       "8-Day Civil Rights History Tour",
       "5-Day Washington, D.C. Black Heritage Tour",
       "7-Day Black American Music History Tour",
-      "Tuskegee",
+      "7-Day Mayan Riviera Expat Tour",
       "Atlanta",
     ]);
   });
