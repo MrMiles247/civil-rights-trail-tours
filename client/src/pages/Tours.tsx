@@ -52,14 +52,14 @@ export default function Tours() {
       ],
     },
     {
-      name: "Montgomery",
-      slug: "montgomery",
+      name: "7-Day Black American Music History Tour",
+      slug: "black-american-music-history-tour",
       description:
-        "Birthplace and culmination point of the Civil Rights Movement",
+        "Trace the Black musical genius that shaped America's sound from Nashville to New Orleans",
       highlights: [
-        "Rosa Parks Museum",
-        "Dexter Avenue Church",
-        "Legacy Museum",
+        "7 guided days",
+        "12 featured sites",
+        "Packages from $1,950",
       ],
     },
     {
