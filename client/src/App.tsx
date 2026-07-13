@@ -10,7 +10,7 @@ import CivilRightsHistoryTour from "./pages/CivilRightsHistoryTour";
 import WashingtonBlackHeritageTour from "./pages/WashingtonBlackHeritageTour";
 import Montgomery from "./pages/Montgomery";
 import MayanRivieraExpatTour from "./pages/Tuskegee";
-import Atlanta from "./pages/Atlanta";
+import JamaicaHeritageTrail from "./pages/Atlanta";
 import About from "./pages/About";
 import Tours from "./pages/Tours";
 import Gallery from "./pages/Gallery";
@@ -48,7 +48,11 @@ function Router() {
         component={MayanRivieraExpatTour}
       />
       <Route path={"/tuskegee"} component={MayanRivieraExpatTour} />
-      <Route path={"/atlanta"} component={Atlanta} />
+      <Route
+        path={"/jamaica-heritage-trail"}
+        component={JamaicaHeritageTrail}
+      />
+      <Route path={"/atlanta"} component={JamaicaHeritageTrail} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
