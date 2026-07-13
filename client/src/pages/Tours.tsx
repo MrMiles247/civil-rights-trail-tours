@@ -63,13 +63,14 @@ export default function Tours() {
       ],
     },
     {
-      name: "Tuskegee",
-      slug: "tuskegee",
-      description: "Where innovation and resistance speak through time",
+      name: "7-Day Mayan Riviera Expat Tour",
+      slug: "mayan-riviera-expat-tour",
+      description:
+        "A coming-soon guided introduction to imagining life in Mexico's Mayan Riviera",
       highlights: [
-        "Tuskegee University",
-        "George Washington Carver Museum",
-        "Tuskegee Airmen Site",
+        "Coming soon",
+        "Cancun to Tulum",
+        "Expat-living discovery",
       ],
     },
     {
