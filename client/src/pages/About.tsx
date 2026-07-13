@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight, Eye, Handshake, Heart, Target, Users } from "lucide-react";
+import { ArrowRight, Compass, Eye, Handshake, Target, Users } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -261,14 +261,14 @@ export default function About() {
 
               <div className="grid gap-8 md:grid-cols-3">
                 <div className="border-t-2 border-primary pt-6">
-                  <Heart className="mb-5 text-primary" size={30} />
+                  <Compass className="mb-5 text-primary" size={30} />
                   <h3 className="mb-3 text-2xl font-bold text-foreground">
-                    Respect
+                    Immersion
                   </h3>
                   <p className="leading-7 text-muted-foreground">
-                    We approach every person, place, and story with dignity,
-                    honoring those who sacrificed and the communities carrying
-                    their legacy.
+                    We believe that immersing yourself in a culture's history,
+                    food, music, and everyday life turns travel from sightseeing
+                    into genuine understanding.
                   </p>
                 </div>
 
