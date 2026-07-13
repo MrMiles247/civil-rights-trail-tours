@@ -21,18 +21,21 @@ describe("City Itinerary Pages", () => {
       name: "5-Day Washington, D.C. Black Heritage Tour",
       slug: "washington-dc-black-heritage-tour",
     },
-    { name: "Montgomery", slug: "montgomery" },
+    {
+      name: "7-Day Black American Music History Tour",
+      slug: "black-american-music-history-tour",
+    },
     { name: "Tuskegee", slug: "tuskegee" },
     { name: "Atlanta", slug: "atlanta" },
   ];
 
-  it("should have two signature itineraries and four city pages defined", () => {
+  it("should have three signature itineraries and three city pages defined", () => {
     expect(cities).toHaveLength(6);
     expect(cities.map(c => c.name)).toEqual([
       "6-Day RTJ Golf Trail Tour",
       "8-Day Civil Rights History Tour",
       "5-Day Washington, D.C. Black Heritage Tour",
-      "Montgomery",
+      "7-Day Black American Music History Tour",
       "Tuskegee",
       "Atlanta",
     ]);
