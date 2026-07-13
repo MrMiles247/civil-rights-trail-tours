@@ -38,6 +38,10 @@ function Router() {
         component={WashingtonBlackHeritageTour}
       />
       <Route path={"/selma"} component={WashingtonBlackHeritageTour} />
+      <Route
+        path={"/black-american-music-history-tour"}
+        component={Montgomery}
+      />
       <Route path={"/montgomery"} component={Montgomery} />
       <Route path={"/tuskegee"} component={Tuskegee} />
       <Route path={"/atlanta"} component={Atlanta} />
