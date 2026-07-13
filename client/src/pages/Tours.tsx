@@ -74,14 +74,14 @@ export default function Tours() {
       ],
     },
     {
-      name: "Atlanta",
-      slug: "atlanta",
+      name: "7-Day Jamaica Heritage Trail",
+      slug: "jamaica-heritage-trail",
       description:
-        "A celebration of civil rights achievements and an invitation to carry the torch forward",
+        "A coming-soon cultural journey through Jamaica for heritage travelers and the diaspora",
       highlights: [
-        "MLK Birth Home",
-        "Ebenezer Baptist Church",
-        "The King Center",
+        "Coming soon",
+        "Montego Bay to Kingston",
+        "Heritage, music & culture",
       ],
     },
   ];
