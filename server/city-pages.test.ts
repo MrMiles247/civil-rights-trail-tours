@@ -29,10 +29,10 @@ describe("City Itinerary Pages", () => {
       name: "7-Day Mayan Riviera Expat Tour",
       slug: "mayan-riviera-expat-tour",
     },
-    { name: "Atlanta", slug: "atlanta" },
+    { name: "7-Day Jamaica Heritage Trail", slug: "jamaica-heritage-trail" },
   ];
 
-  it("should have four signature itineraries and two city pages defined", () => {
+  it("should have six itineraries defined", () => {
     expect(cities).toHaveLength(6);
     expect(cities.map(c => c.name)).toEqual([
       "6-Day RTJ Golf Trail Tour",
@@ -40,7 +40,7 @@ describe("City Itinerary Pages", () => {
       "5-Day Washington, D.C. Black Heritage Tour",
       "7-Day Black American Music History Tour",
       "7-Day Mayan Riviera Expat Tour",
-      "Atlanta",
+      "7-Day Jamaica Heritage Trail",
     ]);
   });
 
