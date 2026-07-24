@@ -355,41 +355,34 @@ export default function Gallery() {
 
         <section className="border-y border-border bg-card py-20">
           <div className="container">
-            <div className="mx-auto mb-12 grid max-w-6xl gap-8 border-b border-border pb-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
-              <div>
-                <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
-                  Field Notes
-                </p>
-                <h2 className="text-4xl font-bold leading-tight text-foreground sm:text-5xl">
-                  More than a <span className="text-primary">destination.</span>
-                </h2>
-              </div>
-              <p className="text-lg leading-8 text-muted-foreground md:text-xl">
-                These are the details that stay with our travelers: young people
-                asking better questions, a shared meal, a drumbeat on the water,
-                and the places where history becomes personal.
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
+                Photo Gallery
+              </p>
+              <h2 className="text-4xl font-bold leading-tight text-foreground sm:text-5xl">
+                Travel <span className="text-primary">Journal</span>
+              </h2>
+              <p className="mt-4 text-lg leading-8 text-muted-foreground">
+                Moments of learning, culture, music, food, and community from
+                journeys across the Civil Rights Trail and beyond.
               </p>
             </div>
 
-            <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-2 lg:grid-cols-12">
-              {fieldNotesPhotos.map((photo, index) => (
+            <div className="mx-auto grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {fieldNotesPhotos.map(photo => (
                 <figure
                   key={photo.src}
-                  className={`group relative min-h-[19rem] overflow-hidden border border-border ${
-                    index === 0
-                      ? "md:col-span-2 lg:col-span-7 lg:row-span-2 lg:min-h-[39rem]"
-                      : index === 5
-                        ? "md:col-span-2 lg:col-span-5 lg:min-h-[19rem]"
-                        : "lg:col-span-5"
-                  }`}
+                  className="group overflow-hidden border border-border bg-background"
                 >
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
-                  />
-                  <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/85 to-transparent p-5 pt-20">
+                  <div className="aspect-square overflow-hidden">
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <figcaption className="border-t border-border p-5">
                     <p className="text-xs font-semibold uppercase tracking-widest text-primary">
                       {photo.location}
                     </p>
