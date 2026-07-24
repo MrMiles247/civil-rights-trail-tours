@@ -92,15 +92,8 @@ export default function Tours() {
 
       <main className="flex-1 pt-20">
         {/* Hero Section */}
-        <section className="relative overflow-hidden py-20">
-          <img
-            src="/gallery/field-notes/sound-of-the-delta.jpg"
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-background/85" />
-          <div className="container relative">
+        <section className="bg-gradient-to-b from-background to-card py-20">
+          <div className="container">
             <div className="max-w-4xl mx-auto text-center space-y-6">
               <h1 className="text-5xl md:text-6xl font-bold">
                 <span className="text-foreground">Our</span>{" "}
