@@ -97,7 +97,7 @@ export default function About() {
 
         <section className="bg-background py-20">
           <div className="container">
-            <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.66fr_1.05fr_0.84fr] lg:items-start">
+            <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
               <div className="border-l-4 border-primary pl-6">
                 <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
                   Our Mission
@@ -135,22 +135,6 @@ export default function About() {
                 </p>
               </div>
 
-              <figure className="group relative min-h-[25rem] overflow-hidden border border-primary/30">
-                <img
-                  src="/gallery/field-notes/art-memory-conversation.jpg"
-                  alt="Civil Rights Trail Tours guide and guest engaging with a visual civil rights exhibit"
-                  loading="lazy"
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
-                />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/85 to-transparent p-6 pt-20">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-primary">
-                    Shared Perspective
-                  </p>
-                  <p className="mt-2 text-xl font-bold text-foreground">
-                    Experience history in conversation with the present.
-                  </p>
-                </figcaption>
-              </figure>
             </div>
           </div>
         </section>
