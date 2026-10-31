@@ -44,3 +44,6 @@ GitHub main is connected to Railway. Pushes to GitHub trigger Railway deployment
 ## Audit
 
 See `ENTERPRISE_CRM_AUDIT.md` for the enterprise CRM audit, implemented controls, and remaining production-hardening checklist.
+
+
+Deployment retry: Railway reported an image-build infrastructure interruption, so the latest GitHub commit was retried.
