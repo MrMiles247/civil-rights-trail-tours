@@ -1,5 +1,12 @@
 import { Link } from "wouter";
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 
 export default function Footer() {
   return (
@@ -12,7 +19,8 @@ export default function Footer() {
               Civil Rights Trail Tours
             </h3>
             <p className="text-muted-foreground mb-4">
-              Honoring history, inspiring change. Experience the profound journey through America's Civil Rights heritage since 2018.
+              Honoring history, inspiring change. Experience the profound
+              journey through America's Civil Rights heritage since 2018.
             </p>
             <p className="text-sm text-muted-foreground">
               Over 100 tours completed
@@ -21,34 +29,40 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold text-foreground mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold text-foreground mb-4">
+              Quick Links
+            </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
-                    Home
-                  </a>
+                <Link
+                  href="/"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Home
                 </Link>
               </li>
               <li>
-                <Link href="/about">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
-                    About Us
-                  </a>
+                <Link
+                  href="/about"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  About Us
                 </Link>
               </li>
               <li>
-                <Link href="/tours">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
-                    Our Tours
-                  </a>
+                <Link
+                  href="/tours"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Our Tours
                 </Link>
               </li>
               <li>
-                <Link href="/contact">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
-                    Contact & Booking
-                  </a>
+                <Link
+                  href="/contact"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Contact & Booking
                 </Link>
               </li>
             </ul>
@@ -56,7 +70,9 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold text-foreground mb-4">Contact Us</h4>
+            <h4 className="text-lg font-semibold text-foreground mb-4">
+              Contact Us
+            </h4>
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <MapPin className="text-primary mt-1 flex-shrink-0" size={18} />
@@ -67,10 +83,10 @@ export default function Footer() {
               <li className="flex items-center space-x-3">
                 <Phone className="text-primary flex-shrink-0" size={18} />
                 <a
-                  href="tel:+12565551234"
+                  href="tel:+12135224233"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  (256) 555-1234
+                  (213) 522-4233
                 </a>
               </li>
               <li className="flex items-center space-x-3">
@@ -117,7 +133,8 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Civil Rights Trail Tours. All rights reserved.
+            © {new Date().getFullYear()} Civil Rights Trail Tours. All rights
+            reserved.
             <span className="mx-2">|</span>
             Founded by Miles Tibbs
           </p>

@@ -19,29 +19,34 @@ export default function Navigation() {
       <div className="container">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/">
-            <a className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors">
-              <div className="text-2xl font-bold">
-                <span className="text-primary">Civil Rights</span>
-                <span className="text-foreground"> Trail Tours</span>
-              </div>
-            </a>
+          <Link
+            href="/"
+            className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors"
+          >
+            <div className="text-2xl font-bold">
+              <span className="text-primary">Civil Rights</span>
+              <span className="text-foreground"> Trail Tours</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                <a className="text-foreground hover:text-primary transition-colors font-medium whitespace-nowrap">
-                  {link.label}
-                </a>
+            {navLinks.map(link => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-foreground hover:text-primary transition-colors font-medium whitespace-nowrap"
+              >
+                {link.label}
               </Link>
             ))}
-            <Link href="/contact">
-              <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                Book Now
-              </Button>
-            </Link>
+            <Button
+              asChild
+              variant="default"
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+            >
+              <Link href="/contact">Book Now</Link>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -56,25 +61,25 @@ export default function Navigation() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 space-y-4 border-t border-border">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                <a
-                  className="block text-foreground hover:text-primary transition-colors font-medium py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
-              </Link>
-            ))}
-            <Link href="/contact">
-              <Button
-                variant="default"
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+            {navLinks.map(link => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="block text-foreground hover:text-primary transition-colors font-medium py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
+                {link.label}
+              </Link>
+            ))}
+            <Button
+              asChild
+              variant="default"
+              className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+            >
+              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
                 Book Now
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         )}
       </div>
